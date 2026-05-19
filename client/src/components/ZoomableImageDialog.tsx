@@ -5,23 +5,28 @@ type ZoomableImageDialogProps = {
   src: string;
   alt: string;
   caption?: string;
+  captionPlacement?: "both" | "dialog" | "inline";
+  buttonLabel?: string;
+  dialogLabel?: string;
   className?: string;
 };
 
-export default function ZoomableImageDialog({ src, alt, caption, className = "" }: ZoomableImageDialogProps) {
+export default function ZoomableImageDialog({ src, alt, caption, captionPlacement = "both", buttonLabel, dialogLabel, className = "" }: ZoomableImageDialogProps) {
   const [open, setOpen] = useState(false);
+  const showInlineCaption = caption && (captionPlacement === "both" || captionPlacement === "inline");
+  const showDialogCaption = caption && (captionPlacement === "both" || captionPlacement === "dialog");
 
   return (
     <>
-      <button type="button" onClick={() => setOpen(true)} className={`group block text-left ${className}`} aria-label={`Ampliar imagem: ${alt}`}>
+      <button type="button" onClick={() => setOpen(true)} className={`group block text-left ${className}`} aria-label={buttonLabel ?? `Ampliar imagem: ${alt}`}>
         <span className="block overflow-hidden bg-[#ebe7df]">
           <img src={src} alt={alt} className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]" />
         </span>
-        {caption ? <span className="mt-3 block font-ui text-[10px] uppercase tracking-[0.12em] text-[#6d6258]">{caption}</span> : null}
+        {showInlineCaption ? <span className="mt-3 block font-ui text-[10px] uppercase tracking-[0.12em] text-[#6d6258]">{caption}</span> : null}
       </button>
 
       {open ? (
-        <div className="fixed inset-0 z-[80] bg-[#111]/90 p-4 md:p-8" role="dialog" aria-modal="true" aria-label={alt} onClick={() => setOpen(false)}>
+        <div className="fixed inset-0 z-[80] bg-[#111]/90 p-4 md:p-8" role="dialog" aria-modal="true" aria-label={dialogLabel ?? alt} onClick={() => setOpen(false)}>
           <button
             type="button"
             onClick={() => setOpen(false)}
@@ -33,7 +38,7 @@ export default function ZoomableImageDialog({ src, alt, caption, className = "" 
           <div className="flex h-full items-center justify-center" onClick={(event) => event.stopPropagation()}>
             <div className="max-h-full max-w-6xl">
               <img src={src} alt={alt} className="max-h-[82vh] w-auto max-w-full object-contain" />
-              {caption ? <p className="mt-4 font-body text-sm text-white/75">{caption}</p> : null}
+              {showDialogCaption ? <p className="mt-4 font-body text-sm text-white/75">{caption}</p> : null}
             </div>
           </div>
         </div>

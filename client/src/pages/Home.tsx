@@ -1,17 +1,11 @@
-import ExhibitionCard from "@/components/ExhibitionCard";
 import Layout from "@/components/Layout";
 import ZoomableImageDialog from "@/components/ZoomableImageDialog";
-import { acervoCategories, curatedPaths, exhibitions, publications } from "@/data/memoria";
+import { curatedPaths, exhibitions } from "@/data/memoria";
 import { ArrowRight } from "lucide-react";
 import { Link } from "wouter";
 
 const heroExhibition = exhibitions.find((item) => item.title.startsWith("Nas ruínas de Curitibanos")) ?? exhibitions[16];
 const featuredExhibition = exhibitions.find((item) => item.title.startsWith("Nova exposição permanente")) ?? exhibitions[12];
-const secondaryExhibitions = [
-  exhibitions.find((item) => item.title.startsWith("A máquina")),
-  exhibitions.find((item) => item.title.startsWith("Do Arquivo ao AtoM")),
-  exhibitions.find((item) => item.title.startsWith("Ecos da Justiça")),
-].filter((item): item is (typeof exhibitions)[number] => Boolean(item));
 const pjscLogoUrl = "https://www.tjsc.jus.br/o/tjsc-theme/images/tjsc/logo.png?t=1776801708000";
 
 export default function Home() {
@@ -45,18 +39,6 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="mt-8 flex flex-wrap gap-5">
-              <Link href="/exposicoes">
-                <span className="inline-flex items-center gap-2 font-ui text-[12px] uppercase tracking-[0.14em] text-[#8b1d2c] underline-offset-4 hover:underline">
-                  Ver exposições <ArrowRight size={14} />
-                </span>
-              </Link>
-              <Link href="/acervo-digital">
-                <span className="inline-flex items-center gap-2 font-ui text-[12px] uppercase tracking-[0.14em] text-[#1f1e1c] underline-offset-4 hover:underline">
-                  Explorar acervo <ArrowRight size={14} />
-                </span>
-              </Link>
-            </div>
           </div>
         </div>
       </section>
@@ -85,12 +67,15 @@ export default function Home() {
             <Link key={path.title} href={path.href}>
               <article className="group flex h-full flex-col justify-between border-t border-[#8b1d2c] pt-5">
                 <div>
+                  <div className="mb-5 flex min-h-[168px] items-center justify-center overflow-hidden border border-[#ddd6cc] bg-[#fbfaf7] p-2 transition group-hover:border-[#8b1d2c]">
+                    <img src={path.imageUrl} alt="" className="max-h-[150px] max-w-full object-contain" loading="lazy" />
+                  </div>
                   <p className="font-ui text-[10px] uppercase tracking-[0.16em] text-[#8b1d2c]">{path.eyebrow}</p>
                   <h3 className="mt-3 font-display text-2xl leading-tight text-[#1f1e1c] group-hover:text-[#8b1d2c]">{path.title}</h3>
                   <p className="mt-4 font-body text-sm leading-relaxed text-[#635b52]">{path.description}</p>
                 </div>
                 <span className="mt-8 inline-flex items-center gap-2 font-ui text-[11px] uppercase tracking-[0.14em] text-[#1f1e1c]">
-                  Abrir percurso <ArrowRight size={13} />
+                  {path.actionLabel} <ArrowRight size={13} />
                 </span>
               </article>
             </Link>
@@ -98,62 +83,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="px-5 py-16 md:px-8 lg:px-12 lg:py-24">
-        <div className="grid gap-12 lg:grid-cols-[1fr_1fr]">
-          <div>
-            <p className="font-ui text-[10px] uppercase tracking-[0.16em] text-[#8b1d2c]">Acervo</p>
-            <h2 className="mt-3 font-display text-4xl leading-tight text-[#1f1e1c] md:text-5xl">Vestígios que convidam um olhar mais demorado.</h2>
-            <ul className="mt-8 grid gap-4">
-              {acervoCategories.map((item) => (
-                <li key={item} className="border-t border-[#ddd6cc] pt-4 font-body text-base leading-relaxed text-[#514a43]">
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <div className="mt-8 grid gap-3 sm:grid-cols-2">
-              <Link href="/acervo-digital">
-                <span className="flex h-full items-center justify-between border-t border-[#8b1d2c] py-4 font-ui text-[12px] uppercase tracking-[0.14em] text-[#8b1d2c] hover:text-[#1f1e1c]">
-                  Explorar acervo <ArrowRight size={14} />
-                </span>
-              </Link>
-              <a href="https://atom.tjsc.jus.br/" target="_blank" rel="noopener noreferrer" className="flex h-full items-center justify-between border-t border-[#8b1d2c] py-4 font-ui text-[12px] uppercase tracking-[0.14em] text-[#1f1e1c] hover:text-[#8b1d2c]">
-                Pesquisa avançada AtoM <ArrowRight size={14} />
-              </a>
-            </div>
-          </div>
-
-          <div className="grid gap-6 sm:grid-cols-2">
-            {secondaryExhibitions.map((exhibition) => (
-              <ExhibitionCard key={exhibition.title} exhibition={exhibition} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="border-y border-[#ddd6cc] px-5 py-16 md:px-8 lg:px-12 lg:py-24">
-        <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
-          <div>
-            <p className="font-ui text-[10px] uppercase tracking-[0.16em] text-[#8b1d2c]">História escrita</p>
-            <h2 className="mt-3 font-display text-4xl leading-tight text-[#1f1e1c] md:text-5xl">Livros para atravessar épocas e comarcas.</h2>
-            <p className="mt-5 font-body text-base leading-relaxed text-[#635b52]">
-              Livros, volumes e registros audiovisuais convidam a percorrer a trajetória de comarcas, magistrados e personagens que moldaram a Justiça catarinense.
-            </p>
-          </div>
-          <div className="grid gap-6 md:grid-cols-2">
-            {publications.map((publication) => (
-              <article key={publication.title} className="border-t border-[#ddd6cc] pt-5">
-                {publication.imageUrl ? <img src={publication.imageUrl} alt={publication.imageAlt} className="mb-5 aspect-[4/3] w-full bg-[#e8e2d8] object-cover" /> : null}
-                <p className="font-ui text-[10px] uppercase tracking-[0.16em] text-[#8b1d2c]">{publication.year}</p>
-                <h3 className="mt-2 font-display text-2xl leading-tight text-[#1f1e1c]">{publication.title}</h3>
-                <p className="mt-3 font-body text-sm leading-relaxed text-[#635b52]">{publication.subtitle}</p>
-                <a href={publication.url} target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex items-center gap-2 font-ui text-[11px] uppercase tracking-[0.14em] text-[#8b1d2c] underline-offset-4 hover:underline">
-                  Acessar <ArrowRight size={13} />
-                </a>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
     </Layout>
   );
 }

@@ -195,17 +195,22 @@ export const exhibitions: Exhibition[] = [
 ];
 
 export const timeline: TimelineEvent[] = [
-  { year: "Período colonial", title: "Ouvidores e tribunais da relação", description: "A Justiça era administrada por ouvidores e tribunais da relação antes da organização estadual republicana." },
-  { year: "1891", title: "Criação do Superior Tribunal de Justiça", description: "A Constituição catarinense cria o Superior Tribunal de Justiça, atual TJSC, e nomeia os cinco primeiros desembargadores." },
-  { year: "1893-1894", title: "Revolução Federalista", description: "A instabilidade política leva o Superior Tribunal de Justiça a retornar à denominação de Tribunal da Relação." },
-  { year: "1908-1929", title: "Rua Jerônimo Coelho", description: "O Tribunal ocupa prédio na rua Jerônimo Coelho, com crescimento lento do número de desembargadores e criação de novas comarcas." },
-  { year: "1929-1968", title: "Praça Pereira Oliveira", description: "A sede do Poder Judiciário funciona na Praça Pereira Oliveira." },
-  { year: "1950s", title: "Primeira magistrada do país", description: "Thereza Grisólia Tang ingressa na magistratura estadual e depois ocupa a Corregedoria da Justiça e a Presidência do TJSC." },
-  { year: "1968-1975", title: "Instalações provisórias", description: "O Tribunal funciona provisoriamente na Agência Ford, na Rua Hoepcke." },
-  { year: "1990", title: "Fundo de Reaparelhamento", description: "Criação do Fundo de Reaparelhamento da Justiça." },
-  { year: "1996", title: "Automação da Justiça", description: "Aquisição do Sistema de Automação da Justiça." },
-  { year: "2013", title: "Sala-cofre", description: "Criação de sala-cofre para armazenamento seguro de informações." },
-  { year: "2023", title: "Prêmio CNJ de Qualidade", description: "O TJSC recebe o Prêmio CNJ de Qualidade, categoria ouro." },
+  { year: "Período colonial", title: "Ouvidores e tribunais da relação", description: "A administração da Justiça servia à Coroa portuguesa por meio de ouvidores e tribunais da relação, instâncias que antecederam a organização judiciária estadual." },
+  { year: "1824", title: "Centralismo imperial", description: "A Independência e a Constituição de 1824 mantiveram a Justiça fortemente centralizada, reforçada pelo Poder Moderador atribuído ao soberano." },
+  { year: "1889-1891", title: "República e Justiça dual", description: "Com a República e a Constituição de 1891, a organização judiciária deixou de ser única e passou ao sistema dual, com Justiça Federal e Justiças estaduais." },
+  { year: "1891", title: "Criação do Tribunal", description: "A Constituição catarinense instituiu o Superior Tribunal de Justiça como órgão de segunda instância; cinco desembargadores foram nomeados pela Resolução n. 285." },
+  { year: "1891-1892", title: "Comarcas catarinenses", description: "Após a divisão inicial em quatorze comarcas, a Lei Estadual n. 16 criou Brusque e São Joaquim, instaladas em 1892." },
+  { year: "1893-1894", title: "Tempos de turbulência", description: "A Revolução Federalista impactou a Capital e a Justiça catarinense; por breve período, o Tribunal voltou a chamar-se Tribunal da Relação." },
+  { year: "1899", title: "Primeiros passos estruturais", description: "Felipe Schmidt alterou a divisão judiciária e passou a exigir experiência e formação em Direito para nomeações de juízes." },
+  { year: "1908-1929", title: "Rua Jerônimo Coelho", description: "O Tribunal ocupou prédio que abrigara a Assembleia Legislativa; no período, cresceram lentamente o número de desembargadores e as comarcas." },
+  { year: "1929-1968", title: "Praça Pereira Oliveira", description: "A sede transferiu-se para edifício reformulado especialmente para o Poder Judiciário, onde funcionou até 1968." },
+  { year: "Década de 1950", title: "Primeira magistrada do país", description: "Thereza Grisólia Tang ingressou na magistratura estadual, enfrentou resistências de gênero e depois ocupou a Corregedoria e a Presidência do TJSC." },
+  { year: "1968-1975", title: "Instalações provisórias", description: "O Tribunal de Justiça e a estrutura judiciária de Primeiro Grau em Florianópolis funcionaram nas antigas instalações da Agência Ford, na Rua Hoepcke." },
+  { year: "1990", title: "Fundo de Reaparelhamento", description: "A criação do Fundo de Reaparelhamento da Justiça tornou-se divisor de águas para obras, tecnologia, infraestrutura e modernização institucional." },
+  { year: "1996", title: "Automação da Justiça", description: "A aquisição do Sistema de Automação da Justiça permitiu informatizar atividades processuais e administrativas do Poder Judiciário catarinense." },
+  { year: "Século XXI", title: "Crescimento e processo digital", description: "A ampliação do Tribunal e os investimentos em tecnologia prepararam a transição dos processos em papel para a tramitação eletrônica." },
+  { year: "2013", title: "Sala-cofre", description: "A sala-cofre certificada passou a proteger informações contra incêndio, inundação, arrombamento e outros incidentes." },
+  { year: "2023", title: "Eficiência reconhecida", description: "O TJSC recebeu o Prêmio CNJ de Qualidade, categoria ouro, em reconhecimento à eficiência institucional." },
 ];
 
 export const videos = [
@@ -221,22 +226,22 @@ export const eventVideos = [
 ];
 
 export const oralHistoryInterviews: OralHistoryInterview[] = [
-  { name: "Teaser do projeto", url: "https://youtu.be/0cX7Ey5_-20" },
-  { name: "Tycho Brahe Fernandes Neto", url: "https://youtu.be/pwqC_J5dKXQ" },
-  { name: "João Martins", url: "https://youtu.be/JLNUyPW7GgA" },
-  { name: "Francisco Xavier Medeiros Vieira", url: "https://youtu.be/YCmzF1JTguo" },
-  { name: "João Schaefer", url: "https://youtu.be/3w-TyO9s7Uc" },
-  { name: "Antônio Fernando do Amaral e Silva", url: "https://youtu.be/pPBoZmbe3E4" },
-  { name: "Jorge Mussi", url: "https://youtu.be/2QVx8g39sic" },
-  { name: "Pedro Manoel Abreu", url: "https://youtu.be/CzKy1bK-vsg" },
-  { name: "Francisco José Rodrigues de Oliveira Filho", url: "https://youtu.be/XP7lM_FVVIs" },
-  { name: "Nelson Schaefer Martins", url: "https://youtu.be/8ozeHx6OD2Q" },
-  { name: "José Antônio Torres Marques", url: "https://youtu.be/6a3b_3zjQTE" },
-  { name: "Rodrigo Tolentino de Carvalho Collaço", url: "https://youtu.be/7oaqYvb_WV4" },
-  { name: "Jaime Luiz Vicari", url: "https://youtu.be/ARcd2GKiJBI" },
-  { name: "Célia Regina de Lima Pinheiro", url: "https://youtu.be/GPif1FlF5n8" },
-  { name: "Entrevista 2024", url: "https://youtu.be/nZFxQxX7K8c" },
-  { name: "João Henrique Blasi", url: "https://youtu.be/OGbm9sblmoo" },
+  { name: "Teaser do projeto", url: "https://youtu.be/0cX7Ey5_-20", imageUrl: "https://www.tjsc.jus.br/documents/7662376/0/banner_memorias_200x134.png/6afb5b94-2fbb-79c9-7b40-4ba3615c9821?t=1635518409787", imageAlt: "Miniatura oficial do projeto Memórias da Justiça" },
+  { name: "Tycho Brahe Fernandes Neto", url: "https://youtu.be/pwqC_J5dKXQ", imageUrl: "https://www.tjsc.jus.br/documents/7662376/11978712/banner_tycho_200x134.png/e8610756-d620-7911-3393-3e67c93bcd73?t=1635518845555", imageAlt: "Miniatura oficial da entrevista de Tycho Brahe Fernandes Neto" },
+  { name: "João Martins", url: "https://youtu.be/JLNUyPW7GgA", imageUrl: "https://www.tjsc.jus.br/documents/7662376/11978712/banner_martins_200x134.png/679814f1-f8f2-29b4-b30e-50b8b0671070?t=1635518846082", imageAlt: "Miniatura oficial da entrevista de João Martins" },
+  { name: "Francisco Xavier Medeiros Vieira", url: "https://youtu.be/YCmzF1JTguo", imageUrl: "https://www.tjsc.jus.br/documents/7662376/11978712/banner_xavier_200x134.png/c78dff8f-1937-50d7-3788-dfae7aea7dc4?t=1635518923215", imageAlt: "Miniatura oficial da entrevista de Francisco Xavier Medeiros Vieira" },
+  { name: "João Schaefer", url: "https://youtu.be/3w-TyO9s7Uc", imageUrl: "https://www.tjsc.jus.br/documents/7662376/11978712/banner_joaoschaefer_200x134.png/c6a0fc4c-e719-4810-3567-781b98a4e229?t=1635518846157", imageAlt: "Miniatura oficial da entrevista de João Schaefer" },
+  { name: "Antônio Fernando do Amaral e Silva", url: "https://youtu.be/pPBoZmbe3E4", imageUrl: "https://www.tjsc.jus.br/documents/7662376/11978712/banner_amaral_200x134+%281%29.png/157f539c-3f9c-8881-63e9-91477af0a978?t=1635518846538", imageAlt: "Miniatura oficial da entrevista de Antônio Fernando do Amaral e Silva" },
+  { name: "Jorge Mussi", url: "https://youtu.be/2QVx8g39sic", imageUrl: "https://www.tjsc.jus.br/documents/7662376/11978712/banner_mussi_200x134.png/5ca9231e-3abd-06f0-5823-0bd81c373016?t=1635518846001", imageAlt: "Miniatura oficial da entrevista de Jorge Mussi" },
+  { name: "Pedro Manoel Abreu", url: "https://youtu.be/CzKy1bK-vsg", imageUrl: "https://www.tjsc.jus.br/documents/7662376/11978712/banner_pedroabreu_200x134.png/370db892-6caf-5c64-73d0-ea7a33b9e505?t=1635518845836", imageAlt: "Miniatura oficial da entrevista de Pedro Manoel Abreu" },
+  { name: "Francisco José Rodrigues de Oliveira Filho", url: "https://youtu.be/XP7lM_FVVIs", imageUrl: "https://www.tjsc.jus.br/documents/7662376/11978712/banner_franciscooliveira_200x134.png/9b32f66c-0a47-5789-13f9-0884395c3d57?t=1635518846352", imageAlt: "Miniatura oficial da entrevista de Francisco José Rodrigues de Oliveira Filho" },
+  { name: "Nelson Schaefer Martins", url: "https://youtu.be/8ozeHx6OD2Q", imageUrl: "https://www.tjsc.jus.br/documents/7662376/11978712/banner_nelson_200x134.png/3e5c1a14-a386-096d-8cc1-e01277f68cee?t=1635518845914", imageAlt: "Miniatura oficial da entrevista de Nelson Schaefer Martins" },
+  { name: "José Antônio Torres Marques", url: "https://youtu.be/6a3b_3zjQTE", imageUrl: "https://www.tjsc.jus.br/documents/7662376/11978712/banner_torres_200x134.png/31166dd7-00cd-fb70-55f8-5bb7d26a14bb?t=1635518845755", imageAlt: "Miniatura oficial da entrevista de José Antônio Torres Marques" },
+  { name: "Rodrigo Tolentino de Carvalho Collaço", url: "https://youtu.be/7oaqYvb_WV4", imageUrl: "https://www.tjsc.jus.br/documents/7662376/11978712/banner_collaco_200x134.png/55fd496b-1a72-8c91-ef04-264126aac54e?t=1635518846412", imageAlt: "Miniatura oficial da entrevista de Rodrigo Tolentino de Carvalho Collaço" },
+  { name: "Jaime Luiz Vicari", url: "https://youtu.be/ARcd2GKiJBI", imageUrl: "https://www.tjsc.jus.br/documents/7662376/11978712/banner_jaime_200x134.png/951f40af-863b-6d9c-de1f-5e45b4750521?t=1635518846253", imageAlt: "Miniatura oficial da entrevista de Jaime Luiz Vicari" },
+  { name: "Célia Regina de Lima Pinheiro", url: "https://youtu.be/GPif1FlF5n8", imageUrl: "https://www.tjsc.jus.br/documents/7662376/11978712/banner_celia_200x134.png/b3533945-df87-a137-0c3a-b672c9169a6c?t=1635518846472", imageAlt: "Miniatura oficial da entrevista de Célia Regina de Lima Pinheiro" },
+  { name: "Entrevista 2024", url: "https://youtu.be/nZFxQxX7K8c", imageUrl: "https://www.tjsc.jus.br/documents/7662376/11978712/WhatsApp+Image+2024-05-10+at+14.03.48.jpeg/ad95927a-9796-b1bf-1510-7abd65c188de?t=1715360703793", imageAlt: "Miniatura oficial da entrevista de 2024" },
+  { name: "João Henrique Blasi", url: "https://youtu.be/OGbm9sblmoo", imageUrl: "https://www.tjsc.jus.br/documents/7662376/11978712/banner-interno-memorias-Blasi.png/3e12846d-dc0f-0676-b0b3-954bd2525bcd?t=1742824143025", imageAlt: "Miniatura oficial da entrevista de João Henrique Blasi" },
 ];
 
 export const managementTerms: ManagementTerm[] = [
@@ -281,8 +286,8 @@ export const atribuicoes = [
 ];
 
 export const curatedPaths = [
-  { title: "Sedes da Justiça", eyebrow: "Percurso", description: "Da Casa da Câmara ao Palácio Ministro Luiz Gallotti, acompanhe os lugares de trabalho que viraram lugares de memória.", href: "/historia", imageUrl: exhibitions[6].imageUrl },
-  { title: "Comarcas e Território", eyebrow: "Percurso", description: "Leia a formação da Justiça catarinense pela história das comarcas, conflitos locais e arquivos de guarda permanente.", href: "/historia-escrita", imageUrl: publications[0].imageUrl },
-  { title: "Vozes da Justiça", eyebrow: "História oral", description: "Entrevistas em vídeo preservam experiências de magistrados e servidores que atravessaram a história institucional.", href: "/historia-oral", imageUrl: exhibitions[1].imageUrl },
-  { title: "Arquivo, AtoM e Pesquisa", eyebrow: "Acervo", description: "Entenda como documentos, descrições arquivísticas e pesquisa histórica se conectam no repositório digital.", href: "/acervo-digital", imageUrl: exhibitions[2].imageUrl },
+  { title: "História do Tribunal", eyebrow: "Percurso histórico", description: "Dos ouvidores coloniais à Justiça digital, acompanhe a criação do Tribunal, suas comarcas, sedes, turbulências políticas e modernização institucional.", href: "/historia", imageUrl: exhibitions[6].imageUrl, actionLabel: "Abrir percurso" },
+  { title: "História escrita", eyebrow: "Publicações", description: "Acesse livros, volumes oficiais e registros audiovisuais sobre comarcas, magistrados e personagens da Justiça catarinense.", href: "/historia-escrita", imageUrl: publications[0].imageUrl, actionLabel: "Acessar materiais" },
+  { title: "Vozes da Justiça", eyebrow: "História oral", description: "Entrevistas em vídeo preservam experiências de magistrados e servidores que atravessaram a história institucional.", href: "/historia-oral", imageUrl: oralHistoryInterviews[0].imageUrl, actionLabel: "Assistir entrevistas" },
+  { title: "Arquivo, AtoM e Pesquisa", eyebrow: "Acervo", description: "Entenda como documentos, descrições arquivísticas e pesquisa histórica se conectam no repositório digital.", href: "/acervo-digital", imageUrl: exhibitions[2].imageUrl, actionLabel: "Explorar acervo" },
 ];

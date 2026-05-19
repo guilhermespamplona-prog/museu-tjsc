@@ -18,11 +18,16 @@ export default function HistoriaOral() {
             A memória institucional não se conserva apenas em arquivos e museus. As entrevistas registram experiências de magistrados e servidores aposentados, preservando informações do cotidiano e da trajetória do Poder Judiciário catarinense.
           </p>
         </div>
-        <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {oralHistoryInterviews.map((interview) => (
-            <a key={interview.url} href={interview.url} target="_blank" rel="noopener noreferrer" className="group flex min-h-28 flex-col justify-between border-t border-[#ddd6cc] py-5 hover:border-[#8b1d2c]">
-              <span className="font-display text-2xl leading-tight text-[#1f1e1c] group-hover:text-[#8b1d2c]">{interview.name}</span>
-              <span className="mt-5 inline-flex items-center gap-2 font-ui text-[11px] uppercase tracking-[0.14em] text-[#635b52]"><Play size={13} /> Assistir <ArrowRight size={13} /></span>
+            <a key={interview.url} href={interview.url} target="_blank" rel="noopener noreferrer" className="group grid gap-5 border-t border-[#ddd6cc] py-5 transition hover:border-[#8b1d2c] sm:grid-cols-[210px_1fr]">
+              <span className="block w-fit overflow-hidden border border-[#ddd6cc] bg-[#f2efe8] p-2 transition group-hover:border-[#8b1d2c]">
+                <img src={interview.imageUrl} alt={interview.imageAlt} width={200} height={134} className="h-[134px] w-[200px] object-cover" loading="lazy" />
+              </span>
+              <span className="flex min-w-0 flex-col justify-center">
+                <span className="font-display text-2xl leading-tight text-[#1f1e1c] group-hover:text-[#8b1d2c]">{interview.name}</span>
+                <span className="mt-5 inline-flex items-center gap-2 font-ui text-[11px] uppercase tracking-[0.14em] text-[#635b52]"><Play size={13} /> Assistir <ArrowRight size={13} /></span>
+              </span>
             </a>
           ))}
         </div>

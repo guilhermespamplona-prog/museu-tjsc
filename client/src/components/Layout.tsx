@@ -11,16 +11,26 @@ const primaryNav = [
   { label: "Pesquisa", href: "/pesquisa" },
 ];
 
-const secondaryNav = [
-  { label: "Museu", href: "/museu" },
-  { label: "História escrita", href: "/historia-escrita" },
-  { label: "História oral", href: "/historia-oral" },
-  { label: "Eventos", href: "/eventos" },
-  { label: "Capela", href: "/capela" },
-  { label: "Biblioteca", href: "/biblioteca" },
-  { label: "Arquivo", href: "/arquivo" },
-  { label: "Composição", href: "/composicao" },
-  { label: "Atribuições", href: "/atribuicoes" },
+const menuSections = [
+  {
+    label: "Coleções e memória",
+    links: [
+      { label: "Museu", href: "/museu" },
+      { label: "História escrita", href: "/historia-escrita" },
+      { label: "História oral", href: "/historia-oral" },
+      { label: "Eventos", href: "/eventos" },
+      { label: "Capela", href: "/capela" },
+    ],
+  },
+  {
+    label: "Serviços e gestão",
+    links: [
+      { label: "Biblioteca", href: "/biblioteca" },
+      { label: "Arquivo", href: "/arquivo" },
+      { label: "Composição", href: "/composicao" },
+      { label: "Atribuições", href: "/atribuicoes" },
+    ],
+  },
 ];
 
 function NavLink({ label, href, onClick }: { label: string; href: string; onClick?: () => void }) {
@@ -67,23 +77,25 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
         {menuOpen ? (
           <div className="border-t border-[#ddd6cc] bg-[#fbfaf7] px-5 py-8 md:px-8 lg:px-12">
-            <div className="grid gap-10 md:grid-cols-2">
-              <div>
-                <p className="font-ui text-[10px] uppercase tracking-[0.16em] text-[#8b1d2c]">Essencial</p>
+            <div className="grid gap-10 md:grid-cols-2 lg:max-w-4xl">
+              <div className="lg:hidden">
+                <p className="font-ui text-[10px] uppercase tracking-[0.16em] text-[#8b1d2c]">Principais</p>
                 <div className="mt-4 grid gap-3">
                   {primaryNav.map((item) => (
                     <NavLink key={item.href} {...item} onClick={() => setMenuOpen(false)} />
                   ))}
                 </div>
               </div>
-              <div>
-                <p className="font-ui text-[10px] uppercase tracking-[0.16em] text-[#8b1d2c]">Coleções e memória</p>
-                <div className="mt-4 grid gap-3">
-                  {secondaryNav.map((item) => (
-                    <NavLink key={item.href} {...item} onClick={() => setMenuOpen(false)} />
-                  ))}
+              {menuSections.map((section) => (
+                <div key={section.label}>
+                  <p className="font-ui text-[10px] uppercase tracking-[0.16em] text-[#8b1d2c]">{section.label}</p>
+                  <div className="mt-4 grid gap-3">
+                    {section.links.map((item) => (
+                      <NavLink key={item.href} {...item} onClick={() => setMenuOpen(false)} />
+                    ))}
+                  </div>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
         ) : null}

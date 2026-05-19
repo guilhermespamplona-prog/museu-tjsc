@@ -45,10 +45,22 @@ export type TimelineEvent = {
 export type OralHistoryInterview = {
   name: string;
   url: string;
+  imageUrl: string;
+  imageAlt: string;
 };
 
 export type ManagementTerm = {
   period: string;
   president: string;
   url: string;
+};
+
+export type CompositionTerm = {
+  period: string;
+  president: string;
+  dateRange: string;
+  imageUrl: string;
+  imageAlt: string;
+  sourceUrl: string;
+  members: string[];
 };
