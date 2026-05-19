@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">13a Semana de Museus</title>
+  <desc id="desc">Ilustracao editorial para semana de museus com tema de sustentabilidade, memoria e patrimonio.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f8f5ee" />
+      <stop offset="1" stop-color="#dfe9dc" />
+    </linearGradient>
+    <linearGradient id="green" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#497a55" />
+      <stop offset="1" stop-color="#1e5f56" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="20" flood-color="#1f1e1c" flood-opacity="0.16" />
+    </filter>
+    <pattern id="paper" width="42" height="42" patternUnits="userSpaceOnUse">
+      <path d="M42 0H0V42" fill="none" stroke="#cfd8c9" stroke-width="1" opacity="0.45" />
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="800" fill="url(#bg)" />
+  <rect width="1200" height="800" fill="url(#paper)" />
+  <path d="M0 617C204 559 370 578 548 633C764 699 944 717 1200 642V800H0Z" fill="#497a55" opacity="0.14" />
+
+  <g transform="translate(86 88)">
+    <text x="0" y="0" font-family="Space Grotesk, Arial, sans-serif" font-size="17" fill="#497a55" letter-spacing="6">13A SEMANA DE MUSEUS</text>
+    <text x="0" y="72" font-family="Cormorant Garamond, Georgia, serif" font-size="62" fill="#1f1e1c">Museus para uma</text>
+    <text x="0" y="138" font-family="Cormorant Garamond, Georgia, serif" font-size="70" fill="#1f1e1c">sociedade sustentavel</text>
+    <path d="M0 174H510" stroke="#497a55" stroke-width="3" />
+  </g>
+
+  <g transform="translate(124 355)" filter="url(#shadow)">
+    <rect x="0" y="0" width="373" height="268" rx="4" fill="#fbfaf7" stroke="#ccd5c8" />
+    <path d="M36 72H337M36 112H276M36 152H314M36 192H240" stroke="#7b8678" stroke-width="8" stroke-linecap="round" opacity="0.45" />
+    <path d="M283 62C313 88 326 121 321 160C279 156 250 137 232 104C250 101 268 87 283 62Z" fill="url(#green)" opacity="0.86" />
+    <path d="M242 206C270 155 300 119 334 93" stroke="#497a55" stroke-width="5" stroke-linecap="round" opacity="0.75" />
+  </g>
+
+  <g transform="translate(628 186)">
+    <path d="M0 402H470" stroke="#8b1d2c" stroke-width="10" stroke-linecap="round" />
+    <path d="M35 402V189H435V402" fill="#f7f2e9" stroke="#d0c6b9" stroke-width="3" />
+    <path d="M78 189V121H392V189" fill="#fbfaf7" stroke="#8b1d2c" stroke-width="5" />
+    <path d="M116 121L235 36L354 121Z" fill="#fbfaf7" stroke="#8b1d2c" stroke-width="5" />
+    <path d="M99 229V360M167 229V360M235 229V360M303 229V360M371 229V360" stroke="#6f776c" stroke-width="12" stroke-linecap="round" />
+  </g>
+
+  <g transform="translate(754 86)">
+    <circle cx="172" cy="172" r="144" fill="#e9f1e4" stroke="#497a55" stroke-width="3" opacity="0.95" />
+    <path d="M172 299C119 235 103 181 126 137C149 93 199 73 265 77C261 142 239 191 199 225C180 241 171 265 172 299Z" fill="url(#green)" opacity="0.9" />
+    <path d="M177 289C185 217 204 158 241 103" stroke="#fbfaf7" stroke-width="6" stroke-linecap="round" opacity="0.72" />
+    <path d="M95 247C134 224 166 214 207 213" stroke="#fbfaf7" stroke-width="6" stroke-linecap="round" opacity="0.7" />
+  </g>
+
+  <g transform="translate(122 668)">
+    <text x="0" y="0" font-family="Space Grotesk, Arial, sans-serif" font-size="18" fill="#497a55" letter-spacing="5">PATRIMONIO  MEMORIA  AMBIENTE</text>
+  </g>
+</svg>
