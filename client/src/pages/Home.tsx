@@ -1,7 +1,7 @@
 import ExhibitionCard from "@/components/ExhibitionCard";
 import Layout from "@/components/Layout";
 import ZoomableImageDialog from "@/components/ZoomableImageDialog";
-import { acervoCategories, curatedPaths, exhibitions, publications, visitInfo } from "@/data/memoria";
+import { acervoCategories, curatedPaths, exhibitions, publications } from "@/data/memoria";
 import { ArrowRight } from "lucide-react";
 import { Link } from "wouter";
 
@@ -151,26 +151,6 @@ export default function Home() {
                 </a>
               </article>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="px-5 py-16 md:px-8 lg:px-12 lg:py-24">
-        <div className="grid gap-10 lg:grid-cols-[1fr_1fr]">
-          <div>
-            <p className="font-ui text-[10px] uppercase tracking-[0.16em] text-[#8b1d2c]">Visitação</p>
-            <h2 className="mt-3 font-display text-4xl leading-tight text-[#1f1e1c] md:text-5xl">Agende sua visita.</h2>
-          </div>
-          <div className="grid gap-4 md:grid-cols-2">
-            <div className="border-t border-[#8b1d2c] pt-5">
-              <p className="font-ui text-[10px] uppercase tracking-[0.16em] text-[#8b1d2c]">Horário</p>
-              <p className="mt-3 font-body text-lg text-[#1f1e1c]">{visitInfo.hours}</p>
-            </div>
-            <div className="border-t border-[#8b1d2c] pt-5">
-              <p className="font-ui text-[10px] uppercase tracking-[0.16em] text-[#8b1d2c]">Agendamento</p>
-              <p className="mt-3 font-body text-lg text-[#1f1e1c]">{visitInfo.phones.join(" / ")}</p>
-              <a href={`mailto:${visitInfo.email}`} className="mt-2 block font-ui text-[11px] uppercase tracking-[0.14em] text-[#8b1d2c] underline-offset-4 hover:underline">{visitInfo.email}</a>
-            </div>
           </div>
         </div>
       </section>

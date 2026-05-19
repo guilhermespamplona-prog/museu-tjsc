@@ -1,7 +1,6 @@
 import { Link, useLocation } from "wouter";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { visitInfo } from "@/data/memoria";
 
 const primaryNav = [
   { label: "Visitar", href: "/visitacoes" },
@@ -68,7 +67,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
         {menuOpen ? (
           <div className="border-t border-[#ddd6cc] bg-[#fbfaf7] px-5 py-8 md:px-8 lg:px-12">
-            <div className="grid gap-10 md:grid-cols-[1fr_1fr_1fr]">
+            <div className="grid gap-10 md:grid-cols-2">
               <div>
                 <p className="font-ui text-[10px] uppercase tracking-[0.16em] text-[#8b1d2c]">Essencial</p>
                 <div className="mt-4 grid gap-3">
@@ -85,52 +84,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   ))}
                 </div>
               </div>
-              <div>
-                <p className="font-ui text-[10px] uppercase tracking-[0.16em] text-[#8b1d2c]">Visitação</p>
-                <p className="mt-4 font-body text-sm leading-relaxed text-[#635b52]">{visitInfo.hours}</p>
-                <p className="mt-2 font-body text-sm leading-relaxed text-[#635b52]">{visitInfo.address}</p>
-                <a href={`mailto:${visitInfo.email}`} className="mt-4 block font-ui text-[11px] uppercase tracking-[0.12em] text-[#8b1d2c] underline-offset-4 hover:underline">
-                  {visitInfo.email}
-                </a>
-              </div>
             </div>
           </div>
         ) : null}
       </header>
 
       <main>{children}</main>
-
-      <footer className="mt-24 border-t border-[#ddd6cc] bg-[#f2efe8] px-5 py-12 md:px-8 lg:px-12">
-        <div className="grid gap-10 md:grid-cols-[1.3fr_1fr_1fr]">
-          <div>
-            <p className="font-ui text-[10px] uppercase tracking-[0.16em] text-[#8b1d2c]">Memória</p>
-            <h2 className="mt-3 max-w-xl font-display text-3xl leading-tight text-[#23211f]">Uma porta digital para a história do Poder Judiciário catarinense.</h2>
-            <p className="mt-5 max-w-xl font-body text-sm leading-relaxed text-[#635b52]">
-              Um percurso digital para descobrir documentos, objetos, vozes e lugares que atravessam a história da Justiça em Santa Catarina.
-            </p>
-          </div>
-
-          <div>
-            <p className="font-ui text-[10px] uppercase tracking-[0.16em] text-[#8b1d2c]">Navegação</p>
-            <div className="mt-4 grid gap-2">
-              {[...primaryNav, ...secondaryNav.slice(0, 4)].map((item) => (
-                <Link key={item.href} href={item.href}>
-                  <span className="font-ui text-[11px] uppercase tracking-[0.12em] text-[#23211f] underline-offset-4 hover:text-[#8b1d2c] hover:underline">{item.label}</span>
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          <div>
-            <p className="font-ui text-[10px] uppercase tracking-[0.16em] text-[#8b1d2c]">Contato do Museu</p>
-            <p className="mt-4 font-body text-sm leading-relaxed text-[#635b52]">{visitInfo.address}</p>
-            <p className="mt-2 font-body text-sm leading-relaxed text-[#635b52]">{visitInfo.phones.join(" / ")}</p>
-            <a href={`mailto:${visitInfo.email}`} className="mt-3 block font-ui text-[11px] uppercase tracking-[0.12em] text-[#8b1d2c] underline-offset-4 hover:underline">
-              {visitInfo.email}
-            </a>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
