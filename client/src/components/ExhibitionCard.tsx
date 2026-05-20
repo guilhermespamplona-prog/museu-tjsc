@@ -16,7 +16,7 @@ export default function ExhibitionCard({ exhibition, featured = false }: Exhibit
     <article className={`group ${featured ? "md:grid md:grid-cols-[1.25fr_0.75fr] md:gap-8" : ""}`}>
       <ZoomableImageDialog
         src={exhibition.imageUrl}
-        alt=""
+        alt={exhibition.imageAlt}
         caption={`${exhibition.year} - ${exhibition.title}`}
         captionPlacement="dialog"
         buttonLabel={`Ampliar imagem da exposição ${exhibition.title}`}

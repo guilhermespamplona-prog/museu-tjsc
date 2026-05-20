@@ -113,7 +113,7 @@ export const visitInfo = {
   email: "dgdm.museu@tjsc.jus.br",
   phones: ["(48) 3287-2436", "(48) 3287-2438"],
   groupLimit: "Máximo de 20 pessoas por horário de visitação",
-  scheduling: "Agendamento obrigatório por telefone ou e-mail",
+  scheduling: "Agendamento por telefone ou e-mail para grupos e visitas mediadas",
 };
 
 export const acervoCategories = [
@@ -151,7 +151,7 @@ export const writtenHistoryVolumes: Publication[] = [
   { title: "Volume 2", subtitle: "Desembargadores e Desembargadoras de 1894 a 1895", year: "1894-1895", description: "PDF da História Escrita.", url: "https://www2.tjsc.jus.br/web/tjsc/memorias/desembargadores-de-santa-catarina-capitulo-2-volume-2.pdf", sourceUrl: sources.writtenHistory.url },
   { title: "Volume 3", subtitle: "Desembargadores e Desembargadoras de 1895 a 1908", year: "1895-1908", description: "PDF da História Escrita.", url: "https://www2.tjsc.jus.br/web/tjsc/memorias/desembargadores-de-santa-catarina-capitulo-3-volume-3.pdf", sourceUrl: sources.writtenHistory.url },
   { title: "Volume 4", subtitle: "Desembargadores e Desembargadoras de 1908 a 1929", year: "1908-1929", description: "PDF da História Escrita.", url: "https://www2.tjsc.jus.br/web/tjsc/memorias/desembargadores-de-santa-catarina-capitulo-4-volume-4.pdf", sourceUrl: sources.writtenHistory.url },
-  { title: "Volume 5", subtitle: "Desembargadores e Desembargadoras de 1929", year: "1929", description: "PDF da História Escrita.", url: "http://www2.tjsc.jus.br/web/tjsc/memorias/desembargadores-de-santa-catarina-capitulo-5-volume-5.pdf", sourceUrl: sources.writtenHistory.url },
+  { title: "Volume 5", subtitle: "Desembargadores e Desembargadoras de 1929", year: "1929", description: "PDF da História Escrita.", url: "https://www2.tjsc.jus.br/web/tjsc/memorias/desembargadores-de-santa-catarina-capitulo-5-volume-5.pdf", sourceUrl: sources.writtenHistory.url },
   { title: "Volume 6", subtitle: "Desembargadores e Desembargadoras de 1929 a 1968", year: "1929-1968", description: "PDF da História Escrita.", url: "https://www2.tjsc.jus.br/web/tjsc/memorias/desembargadores-de-santa-catarina-capitulo-6-volume-6.pdf", sourceUrl: sources.writtenHistory.url },
   { title: "Volume 7", subtitle: "Desembargadores e Desembargadoras de 1968 a 1975", year: "1968-1975", description: "PDF da História Escrita.", url: "https://www2.tjsc.jus.br/web/tjsc/memorias/desembargadores-de-santa-catarina-capitulo-7-volume-7.pdf", sourceUrl: sources.writtenHistory.url },
   { title: "Volume 8, Tomo I", subtitle: "Desembargadores e Desembargadoras de 1975 a 2007", year: "1975-2007", description: "PDF da História Escrita.", url: "https://www2.tjsc.jus.br/web/tjsc/memorias/desembargadores-de-santa-catarina-capitulo-8-volume-8.pdf", sourceUrl: sources.writtenHistory.url },
@@ -287,8 +287,8 @@ export const atribuicoes = [
 ];
 
 export const curatedPaths = [
-  { title: "História do Tribunal", eyebrow: "Percurso histórico", description: "Dos ouvidores coloniais à Justiça digital, acompanhe a criação do Tribunal, suas comarcas, sedes, turbulências políticas e modernização institucional.", href: "/historia", imageUrl: exhibitions[6].imageUrl, actionLabel: "Abrir percurso" },
-  { title: "História escrita", eyebrow: "Publicações", description: "Acesse livros, volumes oficiais e registros audiovisuais sobre comarcas, magistrados e personagens da Justiça catarinense.", href: "/historia-escrita", imageUrl: publications[0].imageUrl, actionLabel: "Acessar materiais" },
-  { title: "Vozes da Justiça", eyebrow: "História oral", description: "Entrevistas em vídeo preservam experiências de magistrados e servidores que atravessaram a história institucional.", href: "/historia-oral", imageUrl: oralHistoryInterviews[0].imageUrl, actionLabel: "Assistir entrevistas" },
-  { title: "Arquivo, AtoM e Pesquisa", eyebrow: "Acervo", description: "Entenda como documentos, descrições arquivísticas e pesquisa histórica se conectam no repositório digital.", href: "/acervo-digital", imageUrl: exhibitions[2].imageUrl, actionLabel: "Explorar acervo" },
+  { title: "História do Tribunal", eyebrow: "Percurso histórico", description: "Dos ouvidores coloniais à Justiça digital, acompanhe a criação do Tribunal, suas comarcas, sedes, turbulências políticas e modernização institucional.", href: "/historia", imageUrl: exhibitions[6].imageUrl, imageAlt: exhibitions[6].imageAlt, actionLabel: "Abrir percurso" },
+  { title: "História escrita", eyebrow: "Publicações", description: "Acesse livros, volumes oficiais e registros audiovisuais sobre comarcas, magistrados e personagens da Justiça catarinense.", href: "/historia-escrita", imageUrl: publications[0].imageUrl, imageAlt: publications[0].imageAlt, actionLabel: "Acessar materiais" },
+  { title: "Vozes da Justiça", eyebrow: "História oral", description: "Entrevistas em vídeo preservam experiências de magistrados e servidores que atravessaram a história institucional.", href: "/historia-oral", imageUrl: oralHistoryInterviews[0].imageUrl, imageAlt: oralHistoryInterviews[0].imageAlt, actionLabel: "Assistir entrevistas" },
+  { title: "Arquivo, AtoM e Pesquisa", eyebrow: "Acervo", description: "Entenda como documentos, descrições arquivísticas e pesquisa histórica se conectam no repositório digital.", href: "/acervo-digital", imageUrl: exhibitions[2].imageUrl, imageAlt: exhibitions[2].imageAlt, actionLabel: "Explorar acervo" },
 ];

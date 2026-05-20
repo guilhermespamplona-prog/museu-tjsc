@@ -34,7 +34,7 @@ export default function Pesquisa() {
           <aside className="h-fit bg-[#f2efe8] p-6 lg:sticky lg:top-28">
             <p className="font-ui text-[10px] uppercase tracking-[0.16em] text-[#8b1d2c]">Contato</p>
             <a href="mailto:dgdm.pesquisa@tjsc.jus.br" className="mt-4 flex items-center gap-3 font-body text-lg text-[#1f1e1c] underline-offset-4 hover:text-[#8b1d2c] hover:underline"><Mail size={16} /> dgdm.pesquisa@tjsc.jus.br</a>
-            <a href="http://atom.tjsc.jus.br/" target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex items-center gap-2 font-ui text-[12px] uppercase tracking-[0.14em] text-[#8b1d2c] underline-offset-4 hover:underline">Pesquisar no AtoM <ArrowRight size={14} /></a>
+            <a href="https://atom.tjsc.jus.br/" target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex items-center gap-2 font-ui text-[12px] uppercase tracking-[0.14em] text-[#8b1d2c] underline-offset-4 hover:underline">Pesquisar no AtoM <ArrowRight size={14} /></a>
           </aside>
         </div>
       </section>

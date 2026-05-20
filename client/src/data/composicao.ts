@@ -21,7 +21,7 @@ José Antônio Torres Marques
 Ricardo Orofino da Luz Fontes
 Maria do Rocio Luz Santa Ritta
 Cid José Goulart Júnior
-Alexandre d’lvanenko
+Alexandre d’Ivanenko
 Jaime Ramos
 José Carlos Carstens Köhler
 Sergio Izidoro Heil
@@ -144,7 +144,7 @@ Ricardo Orofino da Luz Fontes
 Salim Schead dos Santos
 Maria do Rocio Luz Santa Ritta
 Cid José Goulart Júnior
-Alexandre d’lvanenko
+Alexandre d’Ivanenko
 Jaime Ramos
 José Carlos Carstens Köhler
 Sergio Izidoro Heil
@@ -253,7 +253,7 @@ Ricardo Orofino da Luz Fontes
 Salim Schead dos Santos
 Maria do Rocio Luz Santa Ritta
 Cid José Goulart Júnior
-Alexandre d’lvanenko
+Alexandre d’Ivanenko
 Jaime Ramos
 José Carlos Carstens Köhler
 Sergio Izidoro Heil
@@ -362,7 +362,7 @@ Ricardo Orofino da Luz Fontes
 Salim Schead dos Santos
 Maria do Rocio Luz Santa Ritta
 Cid José Goulart Júnior
-Alexandre d’lvanenko
+Alexandre d’Ivanenko
 Jaime Ramos
 José Carlos Carstens Köhler
 Moacyr de Moraes Lima Filho
@@ -471,7 +471,7 @@ Ricardo Orofino da Luz Fontes
 Salim Schead dos Santos
 Maria do Rocio Luz Santa Ritta
 Cid José Goulart Júnior
-Alexandre d’lvanenko
+Alexandre d’Ivanenko
 Jaime Ramos
 Jorge Henrique Schaefer Martins
 José Carlos Carstens Köhler
@@ -582,7 +582,7 @@ Ricardo Orofino da Luz Fontes
 Salim Schead dos Santos
 Maria do Rocio Luz Santa Ritta
 Cid José Goulart Júnior
-Alexandre d’lvanenko
+Alexandre d’Ivanenko
 Jaime Ramos
 Jorge Henrique Schaefer Martins
 José Carlos Carstens Köhler
@@ -694,7 +694,7 @@ Ricardo Orofino da Luz Fontes
 Salim Schead dos Santos
 Maria do Rocio Luz Santa Ritta
 Cid José Goulart Júnior
-Alexandre d’lvanenko
+Alexandre d’Ivanenko
 Jaime Ramos
 Jorge Henrique Schaefer Martins
 José Carlos Carstens Köhler
@@ -773,7 +773,7 @@ Salim Schead dos Santos
 Maria do Rocio Luz Santa Ritta
 Cid José Goulart Júnior
 Hilton Cunha Junior
-Alexandre d’lvanenko
+Alexandre d’Ivanenko
 Newton Janke
 Jaime Ramos
 Jorge Henrique Schaefer Martins
@@ -854,7 +854,7 @@ Maria do Rocio Luz Santa Ritta
 Edson Nelson Ubaldo
 Cid José Goulart Júnior
 Hilton Cunha Junior
-Alexandre d’lvanenko
+Alexandre d’Ivanenko
 Newton Janke
 Jaime Ramos
 Jorge Henrique Schaefer Martins
@@ -925,7 +925,7 @@ Maria do Rocio Luz Santa Ritta
 Edson Nelson Ubaldo
 Cid José Goulart Júnior
 Hilton Cunha Junior
-Alexandre d’lvanenko
+Alexandre d’Ivanenko
 Newton Janke
 Jaime Ramos
 Jorge Henrique Schaefer Martins
@@ -987,7 +987,7 @@ Maria do Rocio Luz Santa Ritta
 Edson Nelson Ubaldo
 Cid José Goulart Júnior
 Hilton Cunha Junior
-Alexandre d’lvanenko
+Alexandre d’Ivanenko
 Newton Janke
 Jaime Ramos
 Jorge Henrique Schaefer Martins
@@ -1048,7 +1048,7 @@ Maria do Rocio Luz Santa Ritta
 Edson Nelson Ubaldo
 Cid José Goulart Júnior
 Hilton Cunha Junior
-Alexandre d’lvanenko
+Alexandre d’Ivanenko
 Newton Janke
 Jaime Ramos
 Jorge Henrique Schaefer Martins
@@ -1441,8 +1441,9 @@ Cláudio Marques de Sousa
   },
   {
     period: "1989-1990",
+    presidentTitle: "Desa.",
     president: "Thereza Grisólia Tang",
-    dateRange: "13 de dezembro de 1984 a 5 de março de 1990",
+    dateRange: "13 de dezembro de 1989 a 5 de março de 1990",
     members: members(`
 Eduardo Pedro Carneiro da Cunha Luz
 Ayres Gama Ferreira de Mello
@@ -1567,7 +1568,7 @@ Wladimir D’Ivanenko
   {
     period: "1982-1984",
     president: "Francisco May Filho",
-    dateRange: "1º de março de 1982 a 1º de março de de 1984",
+    dateRange: "1º de março de 1982 a 1º de março de 1984",
     members: members(`
 Marcílio João da Silva Medeiros
 Eugênio Trompowsky Taulois Filho

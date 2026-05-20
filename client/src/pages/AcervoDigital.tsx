@@ -68,8 +68,10 @@ export default function AcervoDigital() {
           </div>
           <div>
             <form onSubmit={handleSearch} className="flex items-center gap-4 border-b border-[#1f1e1c] pb-4">
+              <label htmlFor="atom-search" className="sr-only">Buscar no AtoM</label>
               <Search size={20} className="text-[#8b1d2c]" />
               <input
+                id="atom-search"
                 type="text"
                 value={searchTerm}
                 onChange={(event) => setSearchTerm(event.target.value)}

@@ -6,12 +6,11 @@ import { Link } from "wouter";
 
 const heroExhibition = exhibitions.find((item) => item.title.startsWith("Nas ruínas de Curitibanos")) ?? exhibitions[16];
 const featuredExhibition = exhibitions.find((item) => item.title.startsWith("Nova exposição permanente")) ?? exhibitions[12];
-const pjscLogoUrl = "https://www.tjsc.jus.br/o/tjsc-theme/images/tjsc/logo.png?t=1776801708000";
 
 export default function Home() {
   return (
     <Layout>
-      <section className="relative min-h-[calc(100vh-73px)] overflow-hidden border-b border-[#ddd6cc] bg-[#ede7dc]">
+      <section className="relative min-h-[78vh] overflow-hidden border-b border-[#ddd6cc] bg-[#ede7dc]">
         <img
           src={heroExhibition.imageUrl}
           alt="Autos judiciais danificados durante a Guerra do Contestado"
@@ -19,15 +18,9 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(251,250,247,0.82)_0%,rgba(251,250,247,0.48)_42%,rgba(251,250,247,0.04)_100%)]" />
         <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#fbfaf7]/88 via-[#fbfaf7]/28 to-transparent" />
-        <div className="relative z-10 flex min-h-[calc(100vh-73px)] flex-col justify-end px-5 py-10 md:px-8 lg:px-12 lg:py-14">
+        <div className="relative z-10 flex min-h-[78vh] flex-col justify-end px-5 py-10 md:px-8 lg:px-12 lg:py-14">
           <div className="w-full">
-            <img
-              src={pjscLogoUrl}
-              alt="Poder Judiciário de Santa Catarina"
-              loading="eager"
-              decoding="async"
-              className="mb-12 h-auto w-[min(62vw,220px)] object-contain md:w-[250px]"
-            />
+            <p className="mb-8 max-w-sm border-l border-[#8b1d2c] pl-4 font-ui text-[11px] uppercase leading-relaxed tracking-[0.16em] text-[#8b1d2c]">Poder Judiciário de Santa Catarina</p>
             <h1 className="max-w-[42rem] font-display text-4xl font-normal leading-[0.98] text-[#1f1e1c] md:text-[3.9rem] lg:text-[4.35rem]">
               Memórias que atravessaram a história.
             </h1>
@@ -68,7 +61,7 @@ export default function Home() {
               <article className="group flex h-full flex-col justify-between border-t border-[#8b1d2c] pt-5">
                 <div>
                   <div className="mb-5 flex min-h-[168px] items-center justify-center overflow-hidden border border-[#ddd6cc] bg-[#fbfaf7] p-2 transition group-hover:border-[#8b1d2c]">
-                    <img src={path.imageUrl} alt="" className="max-h-[150px] max-w-full object-contain" loading="lazy" />
+                    <img src={path.imageUrl} alt={path.imageAlt} className="max-h-[150px] max-w-full object-contain" loading="lazy" />
                   </div>
                   <p className="font-ui text-[10px] uppercase tracking-[0.16em] text-[#8b1d2c]">{path.eyebrow}</p>
                   <h3 className="mt-3 font-display text-2xl leading-tight text-[#1f1e1c] group-hover:text-[#8b1d2c]">{path.title}</h3>

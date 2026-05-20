@@ -19,6 +19,7 @@ export default function Composicao() {
         <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
           {compositionTerms.map((term) => {
             const active = term.period === activeTerm.period;
+            const presidentLabel = `${term.presidentTitle ?? "Des."} ${term.president}`;
 
             return (
               <button
@@ -33,7 +34,7 @@ export default function Composicao() {
                 </span>
                 <span className="mt-3 grid min-h-[7.25rem] content-start">
                   <span className="block font-ui text-[12px] uppercase tracking-[0.14em]">{term.period}</span>
-                  <span className="mt-1 block min-h-[4.5rem] font-display text-xl leading-tight">Des. {term.president}</span>
+                  <span className="mt-1 block min-h-[4.5rem] font-display text-xl leading-tight">{presidentLabel}</span>
                   <span className="block font-body text-sm text-[#635b52]">{term.members.length} desembargadores</span>
                 </span>
               </button>
@@ -44,7 +45,7 @@ export default function Composicao() {
         <aside className="flex h-fit flex-col border-t border-[#8b1d2c] bg-[#f2efe8] p-6 lg:sticky lg:top-28 lg:max-h-[calc(100vh-8rem)]">
           <div className="shrink-0">
             <p className="font-ui text-[10px] uppercase tracking-[0.16em] text-[#8b1d2c]">Gestão {activeTerm.period}</p>
-            <h2 className="mt-3 font-display text-3xl leading-tight text-[#1f1e1c]">Des. {activeTerm.president}</h2>
+            <h2 className="mt-3 font-display text-3xl leading-tight text-[#1f1e1c]">{activeTerm.presidentTitle ?? "Des."} {activeTerm.president}</h2>
             <p className="mt-4 font-body text-sm leading-relaxed text-[#635b52]">{activeTerm.dateRange}</p>
           </div>
 

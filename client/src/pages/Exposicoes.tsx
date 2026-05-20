@@ -41,7 +41,7 @@ export default function Exposicoes() {
         <div className="space-y-14">
           {years.map((year) => (
             <section key={year}>
-              <div className="sticky top-[73px] z-10 border-y border-[#ddd6cc] bg-[#f2efe8]/95 py-3 backdrop-blur">
+              <div className="border-y border-[#ddd6cc] bg-[#f2efe8]/95 py-3">
                 <h3 className="font-ui text-[12px] uppercase tracking-[0.16em] text-[#8b1d2c]">{year}</h3>
               </div>
               <div className="mt-6 grid gap-x-7 gap-y-10 md:grid-cols-2 lg:grid-cols-3">

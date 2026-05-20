@@ -42,7 +42,7 @@ export default function Visitacoes() {
         </div>
         <div className="mt-10 bg-[#f2efe8] p-6">
           <p className="font-body text-sm leading-relaxed text-[#635b52]">
-            Para grupos, organize o agendamento com antecedência. A visita acontece em grupos reduzidos, favorecendo a mediação e a observação do acervo.
+            Para grupos e visitas mediadas, organize o agendamento com antecedência. A visita acontece em grupos reduzidos, favorecendo a mediação e a observação do acervo.
           </p>
         </div>
       </section>

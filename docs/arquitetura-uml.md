@@ -42,8 +42,6 @@ Os blocos PlantUML são modelos iniciais. Eles podem ser copiados para uma ferra
 - AtoM, usado para pesquisa arquivística externa.
 - PDFs e documentos oficiais servidos pelo TJSC.
 - Imagens remotas oficiais servidas pelo TJSC.
-- Google Fonts, usado para carregar `Open Sans`.
-- Umami, opcional, carregado somente quando variáveis de ambiente estiverem configuradas.
 
 ## Atores
 
@@ -69,7 +67,7 @@ Pessoa que altera React, dados estruturados, estilos, documentação e processo 
 
 ### Serviços Externos
 
-AtoM, documentos oficiais, imagens remotas, Google Fonts e Umami opcional.
+AtoM, documentos oficiais e imagens remotas.
 
 ## Casos De Uso
 
@@ -126,7 +124,7 @@ Resultado esperado: pacote estático é publicado sem depender da raiz do domín
 ### Entrada Da Aplicação
 
 - `client/index.html`: HTML base usado pelo Vite.
-- `client/src/main.tsx`: injeta Umami opcional e monta `<App />` em `#root`.
+- `client/src/main.tsx`: monta `<App />` no elemento `museu-tjsc-root`.
 - `client/src/App.tsx`: define `ErrorBoundary`, `ThemeProvider`, `TooltipProvider`, `Router` e rotas.
 
 ### Roteamento
@@ -146,7 +144,6 @@ Resultado esperado: pacote estático é publicado sem depender da raiz do domín
 
 - `ExhibitionCard.tsx`: apresenta exposição com imagem, ano e título.
 - `ZoomableImageDialog.tsx`: abre imagem ampliada em diálogo acessível.
-- `Map.tsx`: componente utilitário para Google Maps, disponível no projeto, mas não é o centro da navegação atual.
 
 ### Páginas Públicas
 
@@ -156,7 +153,6 @@ Resultado esperado: pacote estático é publicado sem depender da raiz do domín
 - `Historia.tsx`: panorama e timeline do Tribunal.
 - `HistoriaOral.tsx`: entrevistas.
 - `HistoriaEscrita.tsx`: publicações e volumes oficiais.
-- `Publicacoes.tsx`: reexporta `HistoriaEscrita`.
 - `Exposicoes.tsx`: galeria de exposições.
 - `Composicao.tsx`: gestões e composição integral por gestão.
 - `Visitacoes.tsx`: horário, endereço e contatos.
@@ -194,7 +190,6 @@ Resultado esperado: pacote estático é publicado sem depender da raiz do domín
 | `/historia-escrita` | `#/historia-escrita` | `HistoriaEscrita` |
 | `/capela` | `#/capela` | `Capela` |
 | `/videos` | `#/videos` | `Videos` |
-| `/publicacoes` | `#/publicacoes` | `Publicacoes` |
 | `/arquivo` | `#/arquivo` | `Arquivo` |
 | `/biblioteca` | `#/biblioteca` | `Biblioteca` |
 | `/composicao` | `#/composicao` | `Composicao` |
@@ -308,11 +303,10 @@ Essa variável deve apontar para a base que contém `images/`, não para a URL d
 
 1. Navegador carrega `index.html`.
 2. Vite entrega CSS e JS por caminhos relativos `./assets/...`.
-3. `main.tsx` verifica variáveis de métricas.
-4. Se métricas existirem, injeta script Umami.
-5. `main.tsx` monta `<App />` em `#root`.
-6. `App.tsx` cria provedores e roteador por hash.
-7. Rota atual renderiza a página correspondente.
+3. `main.tsx` localiza `museu-tjsc-root`.
+4. `main.tsx` monta `<App />` no mount dedicado.
+5. `App.tsx` cria provedores e roteador por hash.
+6. Rota atual renderiza a página correspondente.
 
 ### Fluxo De Navegação Interna
 
@@ -327,19 +321,20 @@ Essa variável deve apontar para a base que contém `images/`, não para a URL d
 1. Página passa `imageUrl`, `imageAlt` e dados de legenda para `ExhibitionCard`.
 2. `ExhibitionCard` renderiza `ZoomableImageDialog`.
 3. Usuário aciona o botão da imagem.
-4. `ZoomableImageDialog` altera estado local `open` para `true`.
-5. Diálogo modal é renderizado com imagem em `object-contain`.
-6. Clique externo ou botão fechar retorna `open` para `false`.
+4. `ZoomableImageDialog` abre um diálogo modal Radix.
+5. Diálogo modal é renderizado com imagem em `object-contain`, foco preso e fechamento por `Escape`.
+6. Clique externo ou botão fechar fecha o diálogo e restaura o foco.
 
 ### Fluxo De Publicação Liferay
 
 1. Mantenedor executa `npx pnpm@10.4.1 build`.
 2. Vite gera `dist/public/index.html`, `dist/public/assets/` e `dist/public/images/`.
-3. `index.html` referencia JS/CSS com `./assets/...`.
-4. Equipe do portal publica os arquivos no mecanismo aprovado.
-5. Se `images/` não ficar no mesmo contexto de diretório do HTML, build deve receber `VITE_PUBLIC_ASSET_BASE`.
-6. Página Liferay carrega o fragmento, Client Extension ou HTML estático.
-7. A aplicação navega por hash e evita conflito com rotas do portal.
+3. `scripts/scope-liferay-css.mjs` escopa o CSS final em `.museu-tjsc-app`.
+4. `index.html` referencia JS/CSS com `./assets/...`.
+5. Equipe do portal publica os arquivos no mecanismo aprovado.
+6. Se `images/` não ficar no mesmo contexto de diretório do HTML, build deve receber `VITE_PUBLIC_ASSET_BASE`.
+7. Página Liferay carrega o fragmento, Client Extension ou HTML estático.
+8. A aplicação navega por hash e evita conflito com rotas do portal.
 
 ## Implantação E Publicação
 
@@ -395,8 +390,6 @@ VITE_PUBLIC_ASSET_BASE="https://www.tjsc.jus.br/documents/d/memoria-museu/museu-
 | Variável | Uso | Obrigatória |
 |---|---|---|
 | `VITE_PUBLIC_ASSET_BASE` | Base pública para `images/` e assets locais quando publicados fora do diretório do HTML | Não |
-| `VITE_ANALYTICS_ENDPOINT` | Endpoint Umami | Não |
-| `VITE_ANALYTICS_WEBSITE_ID` | Identificador do site no Umami | Não |
 | `PORT` | Porta do servidor Express opcional | Não |
 | `NODE_ENV` | Define caminho estático no servidor Express | Não |
 
@@ -508,15 +501,11 @@ package "Navegador" {
 cloud "Portal Liferay" as Liferay
 cloud "AtoM" as Atom
 cloud "Documentos/Imagens TJSC" as Docs
-cloud "Google Fonts" as Fonts
-cloud "Umami opcional" as Umami
 
 Liferay --> Html : incorpora ou serve
 Html --> Main : carrega JS
 Html --> Css : carrega CSS relativo
-Html --> Fonts : Open Sans
-Main --> Umami : injeta se configurado
-Main --> App : monta em #root
+Main --> App : monta em museu-tjsc-root
 App --> Router
 App --> Theme
 App --> Pages
@@ -645,8 +634,7 @@ participant "Dados" as Data
 Usuario -> Host : acessa URL da página
 Host -> Html : entrega HTML
 Html -> Main : carrega JS relativo ./assets
-Main -> Main : verifica variáveis Umami
-Main -> App : monta App em #root
+Main -> App : monta App em museu-tjsc-root
 App -> Router : inicializa useHashLocation
 Router -> Page : escolhe rota atual
 Page -> Data : lê dados estruturados
@@ -766,7 +754,7 @@ Fechado --> [*]
 - Use `App`, `Router`, `Layout`, `Pages`, `Data`, `publicAssetUrl` e `ThemeProvider` como componentes principais.
 - Use os tipos de `client/src/data/types.ts` como classes de domínio.
 - Use `dist/public` como artefato de implantação.
-- Use `Portal Liferay`, `AtoM`, `Documentos/Imagens TJSC`, `Google Fonts` e `Umami` como sistemas externos.
+- Use `Portal Liferay`, `AtoM` e `Documentos/Imagens TJSC` como sistemas externos.
 - Modele rotas como hash routing, não como rotas absolutas de servidor.
 - Modele `VITE_PUBLIC_ASSET_BASE` como configuração de publicação, não como entidade de domínio.
 
@@ -779,6 +767,6 @@ npx pnpm@10.4.1 build
 
 Resultado esperado no build atual:
 
-- `dist/public/index.html` pequeno, com cerca de `0.73 kB`.
+- `dist/public/index.html` pequeno, com referências relativas.
 - CSS e JS referenciados por `./assets/...`.
 - Navegação local acessível por `http://localhost:3000/#/` em desenvolvimento ou `http://localhost:4173/#/` em pré-visualização.

@@ -54,7 +54,7 @@ export default function Museu() {
               <a href={`mailto:${visitInfo.email}`} className="font-body text-sm leading-relaxed text-[#8b1d2c] underline-offset-4 hover:underline">{visitInfo.email}</a>
             </div>
           </div>
-          <p className="mt-6 font-body text-sm leading-relaxed text-[#635b52]">Entrada gratuita. Visitações espontâneas e mediante agendamento, com grupos reduzidos para favorecer a mediação.</p>
+          <p className="mt-6 font-body text-sm leading-relaxed text-[#635b52]">Entrada gratuita. Para grupos e visitas mediadas, organize o agendamento por telefone ou e-mail.</p>
         </aside>
       </section>
     </Layout>

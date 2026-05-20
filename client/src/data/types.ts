@@ -57,6 +57,7 @@ export type ManagementTerm = {
 
 export type CompositionTerm = {
   period: string;
+  presidentTitle?: "Des." | "Desa.";
   president: string;
   dateRange: string;
   imageUrl: string;

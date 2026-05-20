@@ -2,15 +2,10 @@ import { createRoot } from "react-dom/client";
 import App from "./App";
 import "./index.css";
 
-const analyticsEndpoint = import.meta.env.VITE_ANALYTICS_ENDPOINT;
-const analyticsWebsiteId = import.meta.env.VITE_ANALYTICS_WEBSITE_ID;
+const rootElement = document.getElementById("museu-tjsc-root");
 
-if (analyticsEndpoint && analyticsWebsiteId) {
-  const script = document.createElement("script");
-  script.defer = true;
-  script.src = `${analyticsEndpoint.replace(/\/$/, "")}/umami`;
-  script.dataset.websiteId = analyticsWebsiteId;
-  document.body.appendChild(script);
+if (!rootElement) {
+  throw new Error("Elemento #museu-tjsc-root não encontrado.");
 }
 
-createRoot(document.getElementById("root")!).render(<App />);
+createRoot(rootElement).render(<App />);

@@ -1,6 +1,7 @@
 import Layout from "@/components/Layout";
 import PageIntro from "@/components/PageIntro";
 import ZoomableImageDialog from "@/components/ZoomableImageDialog";
+import { publicAssetUrl } from "@/lib/publicAssetUrl";
 
 const capelaPhotos = [
   {
@@ -49,6 +50,14 @@ const capelaPhotos = [
     caption: "Celebração religiosa no interior da capela",
   },
 ];
+
+const saintImage = {
+  src: publicAssetUrl("/images/santa-catarina-alexandria.jpg"),
+  alt: "Ícone de Santa Catarina de Alexandria com a roda do martírio e livros",
+  caption: "Ícone de Santa Catarina de Alexandria exposto na capela",
+};
+
+const galleryPhotos = capelaPhotos.slice(3);
 
 const facts = [
   "A Capela Ecumênica de Santa Catarina de Alexandria foi construída para abrigar a relíquia da padroeira do Estado e oferecer um espaço de paz, reflexão e diálogo.",
@@ -118,18 +127,20 @@ export default function Capela() {
             </article>
           ))}
         </div>
-        <div className="mt-12 bg-[#f2efe8] p-6">
-          <p className="font-body text-sm leading-relaxed text-[#635b52]">
-            A capela combina devoção, arquitetura e narrativa histórica em um espaço pequeno, pensado para recolhimento e diálogo.
-          </p>
-        </div>
       </section>
 
       <section className="border-y border-[#ddd6cc] bg-[#fbfaf7] px-5 py-16 md:px-8 lg:px-12 lg:py-24">
         <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
-          <div>
+          <div className="lg:max-w-md">
             <p className="font-ui text-[10px] uppercase tracking-[0.16em] text-[#8b1d2c]">Saiba mais</p>
             <h2 className="mt-3 font-display text-4xl leading-tight text-[#1f1e1c] md:text-5xl">Da padroeira à relíquia preservada na capela.</h2>
+            <ZoomableImageDialog
+              src={saintImage.src}
+              alt={saintImage.alt}
+              caption={saintImage.caption}
+              captionPlacement="both"
+              className="mt-10 max-w-[360px] [&>span:first-child]:aspect-[3/4] [&>span:first-child]:p-2 [&>span:first-child>img]:object-contain"
+            />
           </div>
           <div className="grid gap-5">
             {learnMore.map((section) => (
@@ -156,7 +167,7 @@ export default function Capela() {
           <h2 className="mt-3 font-display text-4xl leading-tight text-[#1f1e1c] md:text-5xl">Arquitetura, altar e memória em detalhe.</h2>
         </div>
         <div className="grid gap-5 md:grid-cols-3">
-          {capelaPhotos.slice(3).map((photo) => (
+          {galleryPhotos.map((photo) => (
             <ZoomableImageDialog
               key={photo.src}
               src={photo.src}

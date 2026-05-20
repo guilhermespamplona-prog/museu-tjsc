@@ -65,7 +65,7 @@ Notas:
 - História escrita com 2 publicações principais e 9 volumes oficiais em PDF.
 - História oral com 16 entrevistas e miniaturas oficiais remotas em tamanho controlado.
 - Composição do Tribunal por Gestão com 57 gestões, 57 fotos locais e composição integral por gestão.
-- Páginas complementares: Arquivo, Biblioteca, Capela, Vídeos, Visitações, Pesquisa, Atribuições, Eventos e Publicações.
+- Páginas complementares: Arquivo, Biblioteca, Capela, Vídeos, Visitações, Pesquisa, Atribuições e Eventos.
 
 ## Rotas
 
@@ -77,7 +77,6 @@ Notas:
 - `/historia-escrita`
 - `/capela`
 - `/videos`
-- `/publicacoes`
 - `/arquivo`
 - `/biblioteca`
 - `/composicao`
@@ -97,8 +96,8 @@ client/
     images/*.svg                ilustrações editoriais locais para assets quebrados
   src/
     App.tsx                     rotas Wouter
-    main.tsx                    entrada React e métricas condicionais
-    index.css                   tokens globais e Open Sans
+    main.tsx                    entrada React no mount dedicado
+    index.css                   tokens visuais e estilos escopados
     components/
       Layout.tsx                navegação integrada ao portal
       PageIntro.tsx             cabeçalho padrão de páginas
@@ -111,8 +110,6 @@ client/
     pages/                      páginas públicas
 server/
   index.ts                      servidor Express para produção
-shared/
-  const.ts                      compatibilidade do template base
 ```
 
 ## Dados E Fontes
@@ -129,7 +126,7 @@ shared/
 - A publicação estática mínima deve gerar um `index.html` pequeno e referências relativas para CSS e JavaScript em `./assets/...`.
 - Em fragment/snippet Liferay, CSS e JS podem apontar para `{{URL_BASE_DOS_ARQUIVOS}}/assets/...` quando os arquivos são publicados fora da própria página.
 - Três requisitos técnicos sustentam essa publicação: `base: "./"` no Vite, roteamento por hash com `useHashLocation` e resolução configurável de assets públicos.
-- A implementação atual cobre esses pontos: `vite.config.ts` define `base: "./"`, `client/src/App.tsx` usa Wouter com `useHashLocation`, `client/src/lib/publicAssetUrl.ts` resolve imagens/arquivos públicos via `VITE_PUBLIC_ASSET_BASE` ou caminho relativo, e `ThemeContext`/`index.css` escopam tema e estilos em `.museu-tjsc-app` para reduzir colisões com o portal hospedeiro.
+- A implementação atual cobre esses pontos: `vite.config.ts` define `base: "./"`, `client/src/App.tsx` usa Wouter com `useHashLocation`, `client/src/lib/publicAssetUrl.ts` resolve imagens/arquivos públicos via `VITE_PUBLIC_ASSET_BASE` ou caminho relativo, `client/src/main.tsx` monta no elemento `museu-tjsc-root`, e o build executa `scripts/scope-liferay-css.mjs` para escopar o CSS final em `.museu-tjsc-app`.
 - `VITE_PUBLIC_ASSET_BASE` deve apontar para a base real dos arquivos de imagem/estáticos quando `images/` não for servido no mesmo contexto de diretório do `index.html`. Isso é especialmente importante na publicação como fragment/snippet Liferay, em que o HTML pode residir em uma página e os arquivos podem estar em Documentos e Mídia, Client Extension ou CDN interno.
 - Não apontar `VITE_PUBLIC_ASSET_BASE` para a URL da página Liferay. Aponte para a pasta/base que contém `images/` e demais arquivos públicos esperados pelo app.
 
@@ -146,9 +143,9 @@ VITE_PUBLIC_ASSET_BASE="https://www.tjsc.jus.br/documents/d/memoria-museu/museu-
 - Cards de exposição usam moldura homogênea e `object-contain` para evitar corte de cartazes/banners.
 - Miniaturas de História Oral são pequenas (`200x134`) e não devem ser ampliadas para cartões largos.
 
-## Métricas E Segredos
+## Segurança E Segredos
 
-- `client/src/main.tsx` injeta Umami apenas quando variáveis de ambiente estão definidas.
+- A aplicação pública não injeta scripts de métricas por variáveis de ambiente.
 - Não commitar `.project-config.json`, `.env*`, logs, credenciais ou artefatos locais de desenvolvimento.
 - `.gitignore` deve continuar excluindo configurações locais, dependências, builds e arquivos temporários.
 

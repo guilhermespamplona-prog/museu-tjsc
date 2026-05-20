@@ -2,6 +2,8 @@ import { cn } from "@/lib/utils";
 import { AlertTriangle, RotateCcw } from "lucide-react";
 import { Component, ReactNode } from "react";
 
+const showErrorDetails = import.meta.env.DEV;
+
 interface Props {
   children: ReactNode;
 }
@@ -24,20 +26,25 @@ class ErrorBoundary extends Component<Props, State> {
   render() {
     if (this.state.hasError) {
       return (
-        <div className="flex items-center justify-center min-h-screen p-8 bg-background">
+        <div className="flex min-h-screen items-center justify-center bg-background p-8" role="alert">
           <div className="flex flex-col items-center w-full max-w-2xl p-8">
             <AlertTriangle
               size={48}
               className="text-destructive mb-6 flex-shrink-0"
             />
 
-            <h2 className="text-xl mb-4">An unexpected error occurred.</h2>
+            <h2 className="mb-4 text-center font-display text-xl text-[#1f1e1c]">Não foi possível carregar esta página.</h2>
+            <p className="mb-6 max-w-lg text-center font-body text-sm leading-relaxed text-[#635b52]">
+              Recarregue a página. Se o problema continuar, informe a equipe responsável pelo conteúdo.
+            </p>
 
-            <div className="p-4 w-full rounded bg-muted overflow-auto mb-6">
-              <pre className="text-sm text-muted-foreground whitespace-break-spaces">
-                {this.state.error?.stack}
-              </pre>
-            </div>
+            {showErrorDetails ? (
+              <div className="mb-6 w-full overflow-auto rounded bg-muted p-4">
+                <pre className="whitespace-break-spaces text-sm text-muted-foreground">
+                  {this.state.error?.stack}
+                </pre>
+              </div>
+            ) : null}
 
             <button
               onClick={() => window.location.reload()}
@@ -48,7 +55,7 @@ class ErrorBoundary extends Component<Props, State> {
               )}
             >
               <RotateCcw size={16} />
-              Reload Page
+              Recarregar página
             </button>
           </div>
         </div>

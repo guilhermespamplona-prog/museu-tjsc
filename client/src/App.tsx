@@ -14,7 +14,6 @@ import HistoriaOral from "./pages/HistoriaOral";
 import HistoriaEscrita from "./pages/HistoriaEscrita";
 import Capela from "./pages/Capela";
 import Videos from "./pages/Videos";
-import Publicacoes from "./pages/Publicacoes";
 import Arquivo from "./pages/Arquivo";
 import Biblioteca from "./pages/Biblioteca";
 import Composicao from "./pages/Composicao";
@@ -35,7 +34,6 @@ function AppRoutes() {
       <Route path={"/historia-escrita"} component={HistoriaEscrita} />
       <Route path={"/capela"} component={Capela} />
       <Route path={"/videos"} component={Videos} />
-      <Route path={"/publicacoes"} component={Publicacoes} />
       <Route path={"/arquivo"} component={Arquivo} />
       <Route path={"/biblioteca"} component={Biblioteca} />
       <Route path={"/composicao"} component={Composicao} />

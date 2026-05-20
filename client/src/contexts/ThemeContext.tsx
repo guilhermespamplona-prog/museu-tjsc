@@ -33,7 +33,7 @@ export function ThemeProvider({
   useEffect(() => {
     const root =
       document.querySelector<HTMLElement>(APP_THEME_SELECTOR) ??
-      document.getElementById("root");
+      document.getElementById("museu-tjsc-root");
 
     root?.classList.toggle("dark", theme === "dark");
 
