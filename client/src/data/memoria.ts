@@ -60,8 +60,8 @@ export const sources = {
     verifiedAt: VERIFIED_AT,
   },
   biblioteca: {
-    label: "Biblioteca - Memória - TJSC",
-    url: "https://www.tjsc.jus.br/web/memoria/biblioteca",
+    label: "Biblioteca - TJSC",
+    url: "https://www.tjsc.jus.br/web/biblioteca",
     verifiedAt: VERIFIED_AT,
   },
   arquivo: {

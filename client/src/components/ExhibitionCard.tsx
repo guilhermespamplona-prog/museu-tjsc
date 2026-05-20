@@ -1,4 +1,5 @@
 import type { Exhibition } from "@/data/types";
+import { ArrowRight } from "lucide-react";
 import ZoomableImageDialog from "./ZoomableImageDialog";
 
 type ExhibitionCardProps = {
@@ -24,9 +25,14 @@ export default function ExhibitionCard({ exhibition, featured = false }: Exhibit
       />
       <div className={featured ? "mt-6 flex flex-col justify-center md:mt-0" : "mt-4"}>
         <span className="font-ui text-[11px] uppercase tracking-[0.14em] text-[#8b1d2c]">{exhibition.year}</span>
-        <h3 className={`${featured ? "text-3xl md:text-5xl" : "text-xl"} mt-2 font-display font-normal leading-tight text-[#1f1e1c]`}>
-          {exhibition.title}
-        </h3>
+        <a href={exhibition.url} target="_blank" rel="noopener noreferrer" className="mt-2 block text-[#1f1e1c] underline-offset-4 transition hover:text-[#8b1d2c]">
+          <h3 className={`${featured ? "text-3xl md:text-5xl" : "text-xl"} font-display font-normal leading-tight text-inherit`}>
+            {exhibition.title}
+          </h3>
+          <span className="mt-5 inline-flex items-center gap-2 font-ui text-[11px] uppercase tracking-[0.14em] text-inherit">
+            Abrir exposição <ArrowRight size={13} />
+          </span>
+        </a>
       </div>
     </article>
   );
