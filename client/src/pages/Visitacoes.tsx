@@ -19,8 +19,8 @@ export default function Visitacoes() {
         eyebrow="Informações ao visitante"
         title="Visitações"
         description="Planeje sua visita ao Museu Desembargador Tycho Brahe Fernandes Neto e organize grupos com antecedência."
-        backHref="/museu"
-        backLabel="Museu"
+        backHref="/"
+        backLabel="Memória TJSC"
       />
 
       <section className="px-5 pb-16 md:px-8 lg:px-12 lg:pb-24">

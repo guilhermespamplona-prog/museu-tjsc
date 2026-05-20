@@ -17,8 +17,8 @@ export default function Pesquisa() {
         eyebrow="Acesso ao acervo"
         title="Pesquisa acadêmica, científica ou histórica"
         description="Caminho para pesquisadores interessados em autos judiciais findos, documentos históricos e registros preservados pelo Judiciário catarinense."
-        backHref="/museu"
-        backLabel="Museu"
+        backHref="/"
+        backLabel="Memória TJSC"
       />
 
       <section className="px-5 pb-16 md:px-8 lg:px-12 lg:pb-24">

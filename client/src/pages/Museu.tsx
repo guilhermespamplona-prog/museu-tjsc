@@ -2,17 +2,7 @@ import Layout from "@/components/Layout";
 import PageIntro from "@/components/PageIntro";
 import ZoomableImageDialog from "@/components/ZoomableImageDialog";
 import { exhibitions, museumFacts, visitInfo } from "@/data/memoria";
-import { ArrowRight, Clock, Mail, MapPin, Phone, Users } from "lucide-react";
-import { Link } from "wouter";
-
-const museumLinks = [
-  { label: "Acervo", href: "/acervo-digital" },
-  { label: "Exposições", href: "/exposicoes" },
-  { label: "Pesquisa", href: "/pesquisa" },
-  { label: "Visitações", href: "/visitacoes" },
-  { label: "Capela", href: "/capela" },
-  { label: "Eventos", href: "/eventos" },
-];
+import { Clock, Mail, MapPin, Phone, Users } from "lucide-react";
 
 export default function Museu() {
   return (
@@ -36,16 +26,6 @@ export default function Museu() {
               <p key={fact} className="border-t border-[#ddd6cc] pt-5 font-body text-lg leading-relaxed text-[#3a352f]">
                 {fact}
               </p>
-            ))}
-          </div>
-
-          <div className="mt-12 grid gap-4 sm:grid-cols-2">
-            {museumLinks.map((item) => (
-              <Link key={item.href} href={item.href}>
-                <span className="flex items-center justify-between border-t border-[#8b1d2c] py-4 font-ui text-[12px] uppercase tracking-[0.14em] text-[#1f1e1c] hover:text-[#8b1d2c]">
-                  {item.label} <ArrowRight size={14} />
-                </span>
-              </Link>
             ))}
           </div>
         </div>

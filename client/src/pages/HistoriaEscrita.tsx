@@ -12,10 +12,14 @@ export default function HistoriaEscrita() {
         description="Livros e volumes para acompanhar a formação das comarcas e a trajetória de desembargadores e desembargadoras em Santa Catarina."
       />
 
-      <section className="grid gap-10 px-5 pb-16 md:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:px-12 lg:pb-24">
+      <section className="grid gap-10 px-5 pb-16 md:px-8 lg:grid-cols-2 lg:px-12 lg:pb-24">
         {publications.map((publication) => (
           <article key={publication.title} className="border-t border-[#8b1d2c] pt-6">
-            {publication.imageUrl ? <img src={publication.imageUrl} alt={publication.imageAlt} className="mb-6 aspect-[4/3] w-full bg-[#e8e2d8] object-cover" /> : null}
+            {publication.imageUrl ? (
+              <div className="mb-6 aspect-[4/3] w-full overflow-hidden bg-[#e8e2d8]">
+                <img src={publication.imageUrl} alt={publication.imageAlt} className="h-full w-full object-contain" />
+              </div>
+            ) : null}
             <p className="font-ui text-[10px] uppercase tracking-[0.16em] text-[#8b1d2c]">{publication.year}</p>
             <h2 className="mt-3 font-display text-4xl leading-tight text-[#1f1e1c]">{publication.title}</h2>
             <p className="mt-4 font-body text-base leading-relaxed text-[#635b52]">{publication.subtitle}</p>

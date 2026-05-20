@@ -14,8 +14,8 @@ export default function Exposicoes() {
         eyebrow="Galeria de exposições"
         title="Exposições do Museu"
         description="Mostras temporárias e permanentes abrem caminhos para documentos, fotografias, objetos e histórias preservadas pelo Museu."
-        backHref="/museu"
-        backLabel="Museu"
+        backHref="/"
+        backLabel="Memória TJSC"
       />
 
       <section className="px-5 pb-16 md:px-8 lg:px-12 lg:pb-24">

@@ -15,10 +15,10 @@ export default function Home() {
         <img
           src={heroExhibition.imageUrl}
           alt="Autos judiciais danificados durante a Guerra do Contestado"
-          className="absolute inset-0 h-full w-full object-cover opacity-60 saturate-[0.72] sepia-[0.25]"
+          className="absolute inset-0 h-full w-full object-cover opacity-82 saturate-[0.88] sepia-[0.12]"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(251,250,247,0.94)_0%,rgba(251,250,247,0.78)_40%,rgba(251,250,247,0.16)_100%)]" />
-        <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#fbfaf7] via-[#fbfaf7]/58 to-transparent" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(251,250,247,0.82)_0%,rgba(251,250,247,0.48)_42%,rgba(251,250,247,0.04)_100%)]" />
+        <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#fbfaf7]/88 via-[#fbfaf7]/28 to-transparent" />
         <div className="relative z-10 flex min-h-[calc(100vh-73px)] flex-col justify-end px-5 py-10 md:px-8 lg:px-12 lg:py-14">
           <div className="w-full">
             <img

@@ -26,7 +26,7 @@ export default function ZoomableImageDialog({ src, alt, caption, captionPlacemen
       </button>
 
       {open ? (
-        <div className="fixed inset-0 z-[80] bg-[#111]/90 p-4 md:p-8" role="dialog" aria-modal="true" aria-label={dialogLabel ?? alt} onClick={() => setOpen(false)}>
+        <div className="fixed inset-0 z-[80] bg-[#111]/92 p-3 md:p-6" role="dialog" aria-modal="true" aria-label={dialogLabel ?? alt} onClick={() => setOpen(false)}>
           <button
             type="button"
             onClick={() => setOpen(false)}
@@ -36,10 +36,12 @@ export default function ZoomableImageDialog({ src, alt, caption, captionPlacemen
             <X size={18} />
           </button>
           <div className="flex h-full items-center justify-center" onClick={(event) => event.stopPropagation()}>
-            <div className="max-h-full max-w-6xl">
-              <img src={src} alt={alt} className="max-h-[82vh] w-auto max-w-full object-contain" />
-              {showDialogCaption ? <p className="mt-4 font-body text-sm text-white/75">{caption}</p> : null}
-            </div>
+            <figure className="flex h-full w-full max-w-[96vw] flex-col items-center justify-center gap-4">
+              <div className="min-h-0 w-full flex-1">
+                <img src={src} alt={alt} className="h-full w-full object-contain" />
+              </div>
+              {showDialogCaption ? <figcaption className="shrink-0 font-body text-sm leading-relaxed text-white/75 md:text-base">{caption}</figcaption> : null}
+            </figure>
           </div>
         </div>
       ) : null}
