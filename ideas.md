@@ -48,16 +48,15 @@ Percursos atuais:
 
 ## Publicação Em Portal/Liferay
 
-- A documentação interna pode mencionar Liferay e POC Manus; essa restrição não se aplica à copy pública.
 - Manter compatibilidade com publicação estática incorporada: Vite com `base: "./"`, Wouter com `useHashLocation`, tema/estilos escopados em `.museu-tjsc-app` e imagens locais resolvidas por `publicAssetUrl`.
-- A POC Manus confirmou o formato esperado: `index.html` pequeno com `./assets/...`, snippet Liferay com `{{URL_BASE_DOS_ARQUIVOS}}/assets/...` e patch usando `base: "./"`, `useHashLocation` e helper de asset.
+- A publicação incorporada espera `index.html` pequeno com `./assets/...` e, quando necessário, snippet Liferay apontando para `{{URL_BASE_DOS_ARQUIVOS}}/assets/...`.
 - Em fragment/snippet Liferay, definir `VITE_PUBLIC_ASSET_BASE` quando `images/` e arquivos públicos não forem servidos no mesmo diretório/contexto do `index.html`. A variável deve apontar para a base real dos arquivos, não para a URL da página.
 - Não hardcodar bases de publicação nos componentes; ajustar ambiente/build e manter o código chamando `publicAssetUrl` para assets públicos locais.
 
 ## Copy Pública
 
 - Tom curatorial, direto e institucional.
-- Não usar metalinguagem técnica: `protótipo`, `scrape`, `fonte oficial`, `dados verificados`, `página oficial`.
+- Não usar metalinguagem técnica: `protótipo`, termos técnicos de coleta de dados, `fonte oficial`, `dados verificados`, `página oficial`.
 - Evitar termos com alusão criminal em CTAs/copy institucional.
 - Evitar repetir informações administrativas já disponíveis no portal global.
 
@@ -65,4 +64,4 @@ Percursos atuais:
 
 - Antes de acrescentar nova seção à home, verificar se ela não duplica um percurso existente.
 - Antes de alterar fonte ou navegação, comparar com o portal TJSC.
-- Antes de adicionar dado histórico, verificar se há fonte oficial em `client/src/data/memoria.ts` ou nova extração via Firecrawl.
+- Antes de adicionar dado histórico, verificar se há fonte oficial em `client/src/data/memoria.ts` ou em nova coleta revisada a partir de página institucional.

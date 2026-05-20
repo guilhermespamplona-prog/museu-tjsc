@@ -6,11 +6,11 @@ import { ArrowRight, Database, ExternalLink, Search } from "lucide-react";
 import { useState } from "react";
 
 const atomLinks = [
-  { label: "Descrições arquivísticas", url: "https://atom.tjsc.jus.br/index.php/informationobject/browse" },
+  { label: "Descrições arquivísticas", url: "https://atom.tjsc.jus.br/index.php/informationobject/browse?topLod=0" },
   { label: "Pessoas e instituições", url: "https://atom.tjsc.jus.br/index.php/actor/browse" },
-  { label: "Documentos digitais", url: "https://atom.tjsc.jus.br/index.php/digitalobject/browse" },
-  { label: "Assuntos", url: "https://atom.tjsc.jus.br/index.php/taxonomy/browse?taxonomy=35" },
-  { label: "Locais", url: "https://atom.tjsc.jus.br/index.php/taxonomy/browse?taxonomy=42" },
+  { label: "Documentos digitais", url: "https://atom.tjsc.jus.br/index.php/informationobject/browse?view=card&onlyMedia=1&topLod=0" },
+  { label: "Assuntos", url: "https://atom.tjsc.jus.br/index.php/taxonomy/index/id/35" },
+  { label: "Locais", url: "https://atom.tjsc.jus.br/index.php/taxonomy/index/id/42" },
   { label: "Funções", url: "https://atom.tjsc.jus.br/index.php/function/browse" },
 ];
 
@@ -21,7 +21,7 @@ export default function AcervoDigital() {
     event.preventDefault();
     const query = searchTerm.trim();
     if (query) {
-      window.open(`https://atom.tjsc.jus.br/index.php/search?query=${encodeURIComponent(query)}`, "_blank", "noopener,noreferrer");
+      window.open(`https://atom.tjsc.jus.br/index.php/informationobject/browse?query=${encodeURIComponent(query)}&topLod=0`, "_blank", "noopener,noreferrer");
     }
   };
 
@@ -60,8 +60,11 @@ export default function AcervoDigital() {
       <section className="border-y border-[#ddd6cc] bg-[#f2efe8] px-5 py-16 md:px-8 lg:px-12 lg:py-24">
         <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
-            <p className="font-ui text-[10px] uppercase tracking-[0.16em] text-[#8b1d2c]">Pesquisa avançada</p>
-            <h2 className="mt-3 font-display text-4xl leading-tight text-[#1f1e1c] md:text-5xl">AtoM como instrumento, não como substituto da visita.</h2>
+            <p className="font-ui text-[10px] uppercase tracking-[0.16em] text-[#8b1d2c]">Repositório digital</p>
+            <h2 className="mt-3 font-display text-4xl leading-tight text-[#1f1e1c] md:text-5xl">AtoM reúne documentos preservados desde o século XVIII.</h2>
+            <p className="mt-6 max-w-2xl font-body text-base leading-relaxed text-[#635b52]">
+              A plataforma AtoM (Access to Memory) é o software livre usado para difundir o acervo digital de guarda permanente do Poder Judiciário de Santa Catarina. Ela permite pesquisar descrições arquivísticas, documentos digitalizados, assuntos, locais e fundos vinculados aos tribunais que registraram a história da Justiça catarinense.
+            </p>
           </div>
           <div>
             <form onSubmit={handleSearch} className="flex items-center gap-4 border-b border-[#1f1e1c] pb-4">

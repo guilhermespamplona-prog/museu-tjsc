@@ -107,7 +107,7 @@ Resultado esperado: usuário acessa entrevistas com miniaturas oficiais remotas.
 
 Ator principal: Pesquisador Ou Pesquisadora.
 
-Resultado esperado: usuário sai para `https://atom.tjsc.jus.br/` quando precisa de pesquisa arquivística avançada.
+Resultado esperado: usuário sai para páginas HTML públicas do AtoM quando precisa de pesquisa arquivística avançada. A busca textual usa `https://atom.tjsc.jus.br/index.php/informationobject/browse?query={termo}&topLod=0`, não o endpoint JSON/autocomplete `/index.php/search`.
 
 ### Atualizar Conteúdo Estruturado
 
@@ -406,8 +406,8 @@ VITE_PUBLIC_ASSET_BASE="https://www.tjsc.jus.br/documents/d/memoria-museu/museu-
 - Não commitar `.env*`.
 - Não commitar `node_modules/`.
 - Não commitar `dist/`.
-- Não commitar `.manus-logs/`.
-- Não reintroduzir runtime/debug Manus.
+- Não commitar logs locais de desenvolvimento.
+- Não reintroduzir runtimes auxiliares de depuração ou prototipagem no bundle público.
 - Não reintroduzir `SourceLink` ou CTA público genérico `Ver no TJSC`.
 - Não colocar chaves, tokens ou credenciais em documentação pública.
 - Não afirmar fato histórico sem fonte oficial em dados estruturados.

@@ -21,7 +21,7 @@ O projeto não é um backend de acervo. É uma aplicação pública estática, c
 
 - Funcionar como miolo do portal oficial do TJSC, sem competir com cabeçalho/rodapé institucionais.
 - Priorizar experiência de museu público: imagem, acervo, história institucional e percursos de leitura.
-- Evitar metalinguagem pública: não usar `protótipo`, `fonte oficial`, `scrape`, `dados verificados`, `Ver no TJSC` ou equivalentes na interface.
+- Evitar metalinguagem pública: não usar `protótipo`, termos técnicos de coleta de dados, `fonte oficial`, `dados verificados`, `Ver no TJSC` ou equivalentes na interface.
 - Manter AtoM como plataforma externa de pesquisa avançada, não como experiência principal.
 - Reconstruir as páginas principais dentro do app em vez de apenas redirecionar para o portal antigo.
 
@@ -118,7 +118,7 @@ shared/
 ## Dados E Fontes
 
 - A base estrutural veio de páginas oficiais sob `https://www.tjsc.jus.br/web/memoria`.
-- A coleta confiável foi feita com Firecrawl; coleta HTTP simples pode retornar bloqueios ou conteúdo incorreto no domínio TJSC.
+- A coleta dos dados deve partir das páginas institucionais listadas e ser revisada antes de entrar nos arquivos estruturados.
 - `client/src/data/memoria.ts` mantém `sourceUrl` e dados de origem como governança interna.
 - A interface pública não expõe botões genéricos de fonte nem chama o conteúdo de verificado.
 - Imagens oficiais remotas continuam remotas quando o download servidor-servidor retorna bloqueio.
@@ -126,9 +126,9 @@ shared/
 
 ## Publicação Estática E Liferay
 
-- A POC Manus em `/home/hydra-tjsc/Downloads/museu_temp/museu_liferay_dist_poc` validou a publicação estática mínima: `index.html` com 733 bytes e referências relativas `./assets/index-DRJ-i9jX.js` e `./assets/index-BhNJmApF.css`.
-- O modelo conceitual de fragment/snippet Liferay da POC usa `{{URL_BASE_DOS_ARQUIVOS}}/assets/...` para apontar CSS e JS quando os arquivos são publicados fora da própria página.
-- O patch da POC indicou três requisitos técnicos: `base: "./"` no Vite, roteamento por hash com `useHashLocation` e resolução configurável de assets públicos.
+- A publicação estática mínima deve gerar um `index.html` pequeno e referências relativas para CSS e JavaScript em `./assets/...`.
+- Em fragment/snippet Liferay, CSS e JS podem apontar para `{{URL_BASE_DOS_ARQUIVOS}}/assets/...` quando os arquivos são publicados fora da própria página.
+- Três requisitos técnicos sustentam essa publicação: `base: "./"` no Vite, roteamento por hash com `useHashLocation` e resolução configurável de assets públicos.
 - A implementação atual cobre esses pontos: `vite.config.ts` define `base: "./"`, `client/src/App.tsx` usa Wouter com `useHashLocation`, `client/src/lib/publicAssetUrl.ts` resolve imagens/arquivos públicos via `VITE_PUBLIC_ASSET_BASE` ou caminho relativo, e `ThemeContext`/`index.css` escopam tema e estilos em `.museu-tjsc-app` para reduzir colisões com o portal hospedeiro.
 - `VITE_PUBLIC_ASSET_BASE` deve apontar para a base real dos arquivos de imagem/estáticos quando `images/` não for servido no mesmo contexto de diretório do `index.html`. Isso é especialmente importante na publicação como fragment/snippet Liferay, em que o HTML pode residir em uma página e os arquivos podem estar em Documentos e Mídia, Client Extension ou CDN interno.
 - Não apontar `VITE_PUBLIC_ASSET_BASE` para a URL da página Liferay. Aponte para a pasta/base que contém `images/` e demais arquivos públicos esperados pelo app.
@@ -151,8 +151,8 @@ VITE_PUBLIC_ASSET_BASE="https://www.tjsc.jus.br/documents/d/memoria-museu/museu-
 ## Métricas E Segredos
 
 - `client/src/main.tsx` injeta Umami apenas quando variáveis de ambiente estão definidas.
-- Não commitar `.project-config.json`, `.env*`, logs ou artefatos Manus.
-- `.gitignore` já exclui `.project-config.json`, `.manus-logs/` e `client/public/__manus__/`.
+- Não commitar `.project-config.json`, `.env*`, logs, credenciais ou artefatos locais de desenvolvimento.
+- `.gitignore` deve continuar excluindo configurações locais, dependências, builds e arquivos temporários.
 
 ## Regras De Manutenção
 
@@ -161,7 +161,7 @@ VITE_PUBLIC_ASSET_BASE="https://www.tjsc.jus.br/documents/d/memoria-museu/museu-
 - Não transformar a home em índice administrativo; manter foco em acervo e percursos.
 - Não duplicar na home conteúdos que já aparecem na faixa de percursos.
 - Não ampliar miniaturas oficiais de baixa resolução além do tamanho nativo aproximado.
-- Se usar Firecrawl para novas páginas, registrar origem nos dados, mas manter o texto público natural.
+- Ao atualizar dados a partir de novas páginas, registrar origem nos dados, mas manter o texto público natural.
 
 ## Próximos Pontos Naturais
 
