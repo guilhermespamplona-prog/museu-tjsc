@@ -110,5 +110,6 @@ temp/
 # Webdev artifacts (checkpoint zips, migrations, etc.)
 .webdev/
 
-# Manus version file (auto-generated, not part of source)
+# Local coordination/debug artifacts
+.opencode/eval-data.jsonl
 client/public/__manus__/

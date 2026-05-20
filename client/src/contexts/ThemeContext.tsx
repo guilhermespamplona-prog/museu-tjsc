@@ -9,6 +9,7 @@ interface ThemeContextType {
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
+const APP_THEME_SELECTOR = ".museu-tjsc-app";
 
 interface ThemeProviderProps {
   children: React.ReactNode;
@@ -30,16 +31,19 @@ export function ThemeProvider({
   });
 
   useEffect(() => {
-    const root = document.documentElement;
-    if (theme === "dark") {
-      root.classList.add("dark");
-    } else {
-      root.classList.remove("dark");
-    }
+    const root =
+      document.querySelector<HTMLElement>(APP_THEME_SELECTOR) ??
+      document.getElementById("root");
+
+    root?.classList.toggle("dark", theme === "dark");
 
     if (switchable) {
       localStorage.setItem("theme", theme);
     }
+
+    return () => {
+      root?.classList.remove("dark");
+    };
   }, [theme, switchable]);
 
   const toggleTheme = switchable

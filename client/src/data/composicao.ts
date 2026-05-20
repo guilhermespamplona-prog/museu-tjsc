@@ -1,4 +1,5 @@
 import type { CompositionTerm } from "./types";
+import { publicAssetUrl } from "../lib/publicAssetUrl";
 
 const sourceBaseUrl = "https://www.tjsc.jus.br/web/memoria";
 
@@ -2208,7 +2209,7 @@ José Ferreira de Mello
 
 export const compositionTerms: CompositionTerm[] = compositionSeed.map((term) => ({
   ...term,
-  imageUrl: `/images/composicao/gestao-${term.period}.jpg`,
+  imageUrl: publicAssetUrl(`/images/composicao/gestao-${term.period}.jpg`),
   imageAlt: `Retrato de ${term.president}`,
   sourceUrl: `${sourceBaseUrl}/gestao-${term.period}`,
 }));
