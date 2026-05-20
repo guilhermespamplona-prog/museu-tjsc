@@ -55,7 +55,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div className="grid grid-cols-[1fr_auto] items-center gap-6 px-5 py-4 md:px-8 lg:grid-cols-[260px_1fr_auto] lg:px-12">
           <Link href="/">
             <span className="block font-ui text-[11px] uppercase tracking-[0.18em] text-[#8b1d2c]">Memória TJSC</span>
-            <span className="block font-display text-lg leading-none text-[#23211f] md:text-xl">Museu do Judiciário Catarinense</span>
+            <span className="block font-display text-lg leading-none text-[#23211f] md:text-xl">Acervo e história do TJSC</span>
           </Link>
 
           <nav className="hidden items-center justify-center gap-6 lg:flex">

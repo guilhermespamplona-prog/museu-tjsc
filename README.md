@@ -141,8 +141,6 @@ VITE_PUBLIC_ASSET_BASE="https://www.tjsc.jus.br/documents/d/memoria-museu/museu-
 
 ## Decisões Visuais
 
-- Referência vigente: Art Institute of Chicago, por ser museu público editorial, claro e imagem-first.
-- Referências anteriores como Van de Weghe não são mais diretriz principal.
 - Paleta clara com fundo de papel, texto grafite e bordô institucional.
 - Tipografia integral em `Open Sans`, inclusive títulos.
 - Cards de exposição usam moldura homogênea e `object-contain` para evitar corte de cartazes/banners.

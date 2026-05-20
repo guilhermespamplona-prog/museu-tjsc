@@ -1,14 +1,13 @@
 # Direção De Design — Museu TJSC
 
-Registro das decisões visuais vigentes do projeto `museu-tjsc`. Este arquivo substitui o brainstorm inicial baseado em galeria privada e deve guiar novas mudanças de interface.
+Registro das decisões visuais vigentes do projeto `museu-tjsc`. Este arquivo deve guiar novas mudanças de interface.
 
 ## Direção Aceita
 
-O site deve operar como miolo museológico/editorial do portal do Poder Judiciário de Santa Catarina. A referência vigente é o Art Institute of Chicago: museu público, clareza editorial, imagens em primeiro plano, navegação objetiva e baixa ornamentação.
+O site deve operar como miolo museológico/editorial do portal do Poder Judiciário de Santa Catarina, com clareza editorial, imagens em primeiro plano, navegação objetiva e baixa ornamentação.
 
 ## Referências Superadas
 
-- Van de Weghe Fine Art não é mais referência principal.
 - A estética de galeria privada escura foi descartada.
 - Serifas editoriais nos títulos foram descartadas para preservar homogeneidade com o portal TJSC.
 - CTAs públicos de fonte, como `Ver no TJSC`, foram removidos.

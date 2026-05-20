@@ -55,7 +55,7 @@ export default function Home() {
           <ZoomableImageDialog
             src={featuredExhibition.imageUrl}
             alt="Sala expositiva com mobiliário, documentos e objetos do Judiciário catarinense"
-            caption="Exposição permanente do Museu do Judiciário Catarinense"
+            caption="Exposição permanente do acervo judiciário catarinense"
             className="h-full [&>span:first-child]:h-full"
           />
         </div>
