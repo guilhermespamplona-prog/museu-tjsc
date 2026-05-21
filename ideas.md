@@ -81,7 +81,7 @@ Percursos atuais:
 
 ## Segurança E Operação
 
-- `package.json` é `private`.
+- `package.json` usa a flag `"private": true` para impedir publicação acidental no registro npm. O repositório GitHub continua público.
 - Dev e preview escutam `127.0.0.1` por padrão.
 - Express opcional escuta `127.0.0.1`, sem `X-Powered-By`, com `X-Content-Type-Options: nosniff` e `Referrer-Policy: strict-origin-when-cross-origin`.
 - Nenhum analytics, tracker ou fonte externa carregado em runtime.

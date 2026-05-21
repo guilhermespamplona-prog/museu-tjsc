@@ -136,7 +136,7 @@ Inclusões e extensões relevantes:
 ### Infraestrutura De Build E Publicação
 
 - `vite.config.ts`: Vite + React + Tailwind, `base: "./"`, dev/preview ancorados em `127.0.0.1`.
-- `package.json`: scripts, dependências mínimas, `"private": true`.
+- `package.json`: scripts, dependências mínimas, `"private": true` (flag npm para impedir publicação acidental no registro npm; não tem relação com a visibilidade do repositório GitHub, que é público).
 - `scripts/scope-liferay-css.mjs`: escopa o CSS final em `.museu-tjsc-app`.
 - `server/index.ts`: Express opcional que serve `dist/public`, com host local por padrão, sem `X-Powered-By` e headers básicos de segurança.
 - `client/src/lib/publicAssetUrl.ts`: base pública configurável via `VITE_PUBLIC_ASSET_BASE`.

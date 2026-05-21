@@ -6,7 +6,7 @@ O projeto não é gestor de acervo, não é API de metadados nem substitui o Ato
 
 ## Estado Atual
 
-- Repositório privado: `https://github.com/guilhermespamplona-prog/museu-tjsc`.
+- Repositório público: `https://github.com/guilhermespamplona-prog/museu-tjsc`.
 - Ramo principal: `main`.
 - Fase: aplicação editorial funcional, dados oficiais estruturados, rotas internas completas, adaptação para publicação em Liferay, dependências enxutas, revisão adversarial aplicada e compilação validada.
 - Build atual (`dist/public/assets/`): JS ~`368 KiB`, CSS ~`36 KiB`.
@@ -33,6 +33,19 @@ O projeto não é gestor de acervo, não é API de metadados nem substitui o Ato
 - Express apenas para servir a compilação opcionalmente em produção.
 - Fonte global: `Open Sans`, alinhada ao portal TJSC.
 - Sem kit genérico de componentes: nenhum componente UI permanece sem uso real.
+
+## Como Executar Em Outro Computador
+
+Passo a passo completo, com foco em Windows, está em [`docs/guia-execucao-local.md`](docs/guia-execucao-local.md). Em resumo:
+
+```bash
+git clone https://github.com/guilhermespamplona-prog/museu-tjsc.git
+cd museu-tjsc
+npx pnpm@10.4.1 install
+npx pnpm@10.4.1 dev            # http://127.0.0.1:3000/#/
+```
+
+Para reuniões e demonstrações ao cliente, ver [`docs/guia-apresentacao.md`](docs/guia-apresentacao.md).
 
 ## Comandos
 
@@ -197,7 +210,7 @@ VITE_PUBLIC_ASSET_BASE="https://www.tjsc.jus.br/documents/d/memoria-museu/museu-
 ## Segurança E Governança
 
 - Aplicação pública não injeta analytics nem fontes externas em runtime.
-- `package.json` é marcado `"private": true`.
+- `package.json` é marcado `"private": true` apenas para impedir publicação acidental no registro npm. Não tem relação com a visibilidade do repositório GitHub, que é público.
 - Dev server e preview escutam em `127.0.0.1` por padrão.
 - Servidor Express opcional escuta em `127.0.0.1` por padrão e desativa `X-Powered-By`. Adiciona `X-Content-Type-Options: nosniff` e `Referrer-Policy: strict-origin-when-cross-origin`. Para expor na rede, definir `HOST=0.0.0.0` explicitamente.
 - `.gitignore` exclui `.project-config.json`, `.env*`, `node_modules/`, `dist/`, logs e artefatos locais.
@@ -228,6 +241,8 @@ A direção de design vigente está em [`ideas.md`](ideas.md). Resumo:
 
 - Arquitetura e UML: [`docs/arquitetura-uml.md`](docs/arquitetura-uml.md).
 - Mapa do site: [`docs/mapa-do-site.md`](docs/mapa-do-site.md).
+- Guia de execução local (Windows/macOS/Linux): [`docs/guia-execucao-local.md`](docs/guia-execucao-local.md).
+- Guia de apresentação e geração de documentação para clientes: [`docs/guia-apresentacao.md`](docs/guia-apresentacao.md).
 - Direção de design: [`ideas.md`](ideas.md).
 
 ## Próximos Pontos Naturais
