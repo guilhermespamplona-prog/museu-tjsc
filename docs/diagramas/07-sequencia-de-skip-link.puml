@@ -1,0 +1,15 @@
+@startuml
+actor Usuario
+participant "Layout" as Layout
+participant "focusMainContent" as Focus
+participant "<main>" as Main
+
+Usuario -> Layout : Tab inicial
+Layout --> Usuario : mostra skip link
+Usuario -> Layout : Enter no skip link
+Layout -> Focus : onClick(event)
+Focus -> Focus : event.preventDefault()
+Focus -> Main : focus({preventScroll: true})
+Focus -> Main : scrollIntoView({block: "start"})
+Main --> Usuario : foco e leitor de tela no main
+@enduml

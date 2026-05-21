@@ -1,0 +1,8 @@
+@startuml
+[*] --> Inicial : monta com primeira gestão ativa
+Inicial --> Selecionada : clique em card
+Selecionada --> Selecionada : ArrowUp / ArrowDown / ArrowLeft / ArrowRight
+Selecionada --> Selecionada : Home (primeira) / End (última)
+Selecionada --> Selecionada : atualiza painel aria-live
+Selecionada --> [*] : sai da página
+@enduml

@@ -1,0 +1,32 @@
+@startuml
+package "Memória TJSC" {
+  package "client/src" {
+    package "components"
+    package "pages"
+    package "data"
+    package "lib"
+    component "App.tsx"
+    component "main.tsx"
+    component "index.css"
+  }
+  package "scripts" {
+    component "scope-liferay-css.mjs"
+  }
+  package "server" {
+    component "index.ts (Express opcional)"
+  }
+  package "docs" {
+    component "arquitetura-uml.md"
+    component "mapa-do-site.md"
+  }
+}
+
+"client/src" --> "components" : usa
+"client/src" --> "pages" : usa
+"pages" --> "data" : lê
+"pages" --> "components" : compõe
+"components" --> "lib" : resolve assets
+"client/src" --> "index.css" : aplica
+"scripts" --> "client/src" : pós-processa CSS
+"server" --> "client/src" : serve build estático
+@enduml

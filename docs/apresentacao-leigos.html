@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>Memória TJSC — Apresentação Visual</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+      :root {
+        --bg: #fbfaf7;
+        --ink: #1f1e1c;
+        --muted: #635b52;
+        --accent: #8b1d2c;
+        --line: #ddd6cc;
+        --card: #f2efe8;
+        --panel: #ebe5d9;
+      }
+      * { box-sizing: border-box; }
+      html, body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        font-size: 16px;
+        line-height: 1.55;
+      }
+      body {
+        padding: 0;
+      }
+      header.capa,
+      section.pagina {
+        page-break-after: always;
+        min-height: 100vh;
+        padding: 48px 56px;
+        display: grid;
+        gap: 28px;
+        align-content: start;
+      }
+      section.pagina:last-of-type { page-break-after: auto; }
+      h1, h2, h3 { margin: 0; font-weight: 600; }
+      h1 { font-size: 44px; letter-spacing: -0.02em; line-height: 1.05; }
+      h2 { font-size: 28px; letter-spacing: -0.01em; }
+      h3 { font-size: 18px; }
+      p { margin: 0; }
+      .eyebrow {
+        font-size: 11px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--accent);
+      }
+      .lead {
+        font-size: 19px;
+        color: var(--muted);
+        max-width: 64ch;
+      }
+      .grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+      .grid-4 {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+      }
+      .grid-3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+      .wireframe {
+        background: white;
+        border: 1px solid var(--line);
+        border-radius: 4px;
+        padding: 24px;
+        display: grid;
+        gap: 16px;
+      }
+      .wireframe .nav {
+        display: flex;
+        gap: 12px;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--muted);
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--line);
+      }
+      .wireframe .nav strong { color: var(--accent); }
+      .wireframe .hero {
+        height: 220px;
+        background: var(--card);
+        border: 1px solid var(--line);
+        display: grid;
+        place-items: center;
+        font-size: 13px;
+        color: var(--muted);
+        text-align: center;
+        padding: 16px;
+      }
+      .wireframe .hero.tall { height: 280px; }
+      .wireframe .row {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+      }
+      .wireframe .row.three { grid-template-columns: repeat(3, 1fr); }
+      .wireframe .row.two { grid-template-columns: 1fr 1fr; }
+      .wireframe .card {
+        background: var(--card);
+        border-top: 2px solid var(--accent);
+        padding: 12px;
+        min-height: 90px;
+        font-size: 12px;
+        color: var(--muted);
+      }
+      .wireframe .card strong { color: var(--ink); display: block; margin-bottom: 4px; font-size: 13px; }
+      .wireframe .sidebar {
+        background: var(--card);
+        border-top: 2px solid var(--accent);
+        padding: 16px;
+        font-size: 12px;
+        color: var(--muted);
+      }
+      .descricao {
+        background: var(--card);
+        border-left: 4px solid var(--accent);
+        padding: 16px 20px;
+        font-size: 14px;
+        color: var(--muted);
+      }
+      .descricao strong { color: var(--ink); }
+      .lista {
+        display: grid;
+        gap: 8px;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+      }
+      .lista li {
+        display: grid;
+        grid-template-columns: 18px 1fr;
+        gap: 12px;
+        font-size: 14px;
+        color: var(--ink);
+      }
+      .lista li::before {
+        content: "■";
+        color: var(--accent);
+        font-size: 10px;
+        margin-top: 4px;
+      }
+      .duas-colunas {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 32px;
+        align-items: start;
+      }
+      .quadro {
+        background: white;
+        border: 1px solid var(--line);
+        border-radius: 4px;
+        padding: 20px;
+      }
+      .quadro h3 { margin-bottom: 12px; color: var(--accent); }
+      footer.rodape {
+        font-size: 12px;
+        color: var(--muted);
+        border-top: 1px solid var(--line);
+        padding-top: 12px;
+      }
+      @media print {
+        @page { size: A4; margin: 0; }
+        body { background: white; }
+        header.capa,
+        section.pagina {
+          padding: 24mm 18mm;
+          min-height: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="capa">
+      <p class="eyebrow">Poder Judiciário de Santa Catarina</p>
+      <h1>Memória TJSC<br />Apresentação Visual Do Projeto</h1>
+      <p class="lead">
+        Uma visão simples, sem termos técnicos, sobre o site que reúne a memória institucional do
+        Tribunal de Justiça de Santa Catarina. Este documento descreve o que o visitante encontra
+        em cada parte do site.
+      </p>
+      <div class="grid-3">
+        <div class="quadro">
+          <p class="eyebrow">O que é</p>
+          <p>Um site público com a história, os arquivos e as exposições do Tribunal.</p>
+        </div>
+        <div class="quadro">
+          <p class="eyebrow">Para quem</p>
+          <p>Visitantes, pesquisadores, estudantes e qualquer cidadão interessado.</p>
+        </div>
+        <div class="quadro">
+          <p class="eyebrow">Onde fica</p>
+          <p>Acessado pelo portal do TJSC e integrado ao ambiente Liferay.</p>
+        </div>
+      </div>
+      <footer class="rodape">Atualizado em maio de 2026. Versão para clientes e equipes não técnicas.</footer>
+    </header>
+
+    <section class="pagina">
+      <p class="eyebrow">Página inicial</p>
+      <h2>O primeiro contato com o site</h2>
+      <p class="lead">
+        Ao abrir, o visitante vê uma imagem em destaque, uma chamada principal e quatro caminhos
+        editoriais. Tudo foi pensado para acolher quem chega e oferecer entradas claras.
+      </p>
+
+      <div class="wireframe">
+        <div class="nav">
+          <strong>Memória TJSC</strong>
+          <span>Visitar</span><span>Exposições</span><span>Acervo</span><span>Pesquisa</span><span>AtoM</span>
+        </div>
+        <div class="hero tall">Imagem em destaque — exposição "Nas ruínas de Curitibanos"</div>
+        <div class="row">
+          <div class="card"><strong>História do Tribunal</strong>Dos ouvidores coloniais à Justiça digital.</div>
+          <div class="card"><strong>História escrita</strong>Livros, volumes e registros oficiais.</div>
+          <div class="card"><strong>Vozes da Justiça</strong>Entrevistas em vídeo.</div>
+          <div class="card"><strong>Arquivo, AtoM e Pesquisa</strong>Acervo digital e fontes.</div>
+        </div>
+      </div>
+
+      <div class="descricao">
+        <strong>O que o visitante percebe:</strong> uma página leve, com identidade de museu,
+        que respeita o portal do TJSC e convida a explorar a memória da Justiça catarinense.
+      </div>
+    </section>
+
+    <section class="pagina">
+      <p class="eyebrow">Exposições</p>
+      <h2>Galeria de mostras temporárias e permanentes</h2>
+      <p class="lead">
+        O visitante vê uma exposição em destaque, três cartões adicionais e, abaixo, todas as
+        exposições do museu organizadas por ano. Cada imagem pode ser ampliada e o título leva à
+        página oficial daquela exposição.
+      </p>
+
+      <div class="wireframe">
+        <div class="nav"><strong>Exposições</strong><span>← Memória TJSC</span></div>
+        <div class="hero">Exposição em destaque — imagem grande + título + link oficial</div>
+        <div class="row three">
+          <div class="card"><strong>Exposição</strong>Imagem + ano + título</div>
+          <div class="card"><strong>Exposição</strong>Imagem + ano + título</div>
+          <div class="card"><strong>Exposição</strong>Imagem + ano + título</div>
+        </div>
+        <div class="hero">Faixa do ano (ex.: 2024)</div>
+        <div class="row three">
+          <div class="card">Exposição</div>
+          <div class="card">Exposição</div>
+          <div class="card">Exposição</div>
+        </div>
+      </div>
+
+      <div class="descricao">
+        <strong>Total: 32 exposições</strong> de 2001 a 2025, com cartazes/fotos oficiais. Ao
+        clicar em uma imagem, abre uma janela ampliada para apreciar a obra. Ao clicar no título,
+        abre a página oficial da exposição em uma nova aba.
+      </div>
+    </section>
+
+    <section class="pagina">
+      <p class="eyebrow">Composição do Tribunal por Gestão</p>
+      <h2>57 gestões da Corte, com foto e lista completa</h2>
+      <p class="lead">
+        Cada gestão aparece como um cartão com foto e nome do presidente/presidenta. Ao escolher
+        uma gestão, o painel lateral mostra o período exato e a lista completa de
+        desembargadores e desembargadoras.
+      </p>
+
+      <div class="wireframe">
+        <div class="nav"><strong>Composição</strong><span>← Memória TJSC</span></div>
+        <div class="duas-colunas">
+          <div>
+            <div class="row three">
+              <div class="card"><strong>2024–2026</strong>Foto da gestão</div>
+              <div class="card"><strong>2022–2024</strong>Foto da gestão</div>
+              <div class="card"><strong>2020–2022</strong>Foto da gestão</div>
+              <div class="card"><strong>2018–2020</strong>Foto da gestão</div>
+              <div class="card"><strong>2016–2018</strong>Foto da gestão</div>
+              <div class="card"><strong>...</strong>57 gestões no total</div>
+            </div>
+          </div>
+          <div class="sidebar">
+            <p class="eyebrow">Gestão 2018–2020</p>
+            <h3 style="margin:8px 0 12px;">Des. Rodrigo Tolentino de Carvalho Collaço</h3>
+            <p style="font-size:12px;">2 de fevereiro de 2018 a 31 de janeiro de 2020</p>
+            <ul class="lista" style="margin-top:12px;">
+              <li>Composição integral em ordem oficial</li>
+              <li>Cada nome alinhado em coluna</li>
+              <li>Lista rola dentro do próprio painel</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="descricao">
+        <strong>Acessível por teclado:</strong> pessoas que usam apenas o teclado podem mover-se
+        entre as gestões com as setas, pular para a primeira (Home) ou para a última (End). Ideal
+        para acessibilidade.
+      </div>
+    </section>
+
+    <section class="pagina">
+      <p class="eyebrow">História escrita e oral</p>
+      <h2>Publicações e vídeos da memória institucional</h2>
+      <p class="lead">
+        Duas áreas complementares: na <strong>História escrita</strong>, livros oficiais e
+        volumes em PDF; na <strong>História oral</strong>, vídeos com depoimentos.
+      </p>
+
+      <div class="grid-2">
+        <div class="wireframe">
+          <div class="nav"><strong>História escrita</strong></div>
+          <div class="hero">Capa do livro principal</div>
+          <div class="row two">
+            <div class="card"><strong>Vol. 1</strong>1891–1894</div>
+            <div class="card"><strong>Vol. 2</strong>1894–1895</div>
+            <div class="card"><strong>Vol. 3</strong>1895–1908</div>
+            <div class="card"><strong>...</strong>9 volumes em PDF</div>
+          </div>
+        </div>
+
+        <div class="wireframe">
+          <div class="nav"><strong>História oral</strong></div>
+          <div class="row two">
+            <div class="card"><strong>Teaser</strong>Apresentação do projeto</div>
+            <div class="card"><strong>Tycho Brahe</strong>Entrevista em vídeo</div>
+            <div class="card"><strong>João Martins</strong>Entrevista em vídeo</div>
+            <div class="card"><strong>...</strong>16 vídeos no total</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="descricao">
+        <strong>História escrita:</strong> 2 publicações e 9 volumes oficiais. <strong>História
+        oral:</strong> 16 vídeos com magistrados e servidores que viveram a história da Justiça
+        catarinense.
+      </div>
+    </section>
+
+    <section class="pagina">
+      <p class="eyebrow">Museu e Capela</p>
+      <h2>O espaço físico e o patrimônio</h2>
+      <p class="lead">
+        Duas páginas para conhecer o museu e a capela: dados de visitação, fotos oficiais e o
+        contexto histórico.
+      </p>
+
+      <div class="grid-2">
+        <div class="wireframe">
+          <div class="nav"><strong>Museu</strong></div>
+          <div class="hero">Foto da sala permanente</div>
+          <ul class="lista">
+            <li>Horário: segunda a sexta, 12h às 19h</li>
+            <li>Endereço, e-mail e telefones oficiais</li>
+            <li>Grupos: até 20 pessoas com agendamento</li>
+            <li>Texto explicativo sobre o acervo</li>
+          </ul>
+        </div>
+
+        <div class="wireframe">
+          <div class="nav"><strong>Capela</strong></div>
+          <div class="hero">Foto da placa de inauguração + vitrais</div>
+          <ul class="lista">
+            <li>Capela Ecumênica de Santa Catarina de Alexandria</li>
+            <li>Galeria com 9 fotos oficiais</li>
+            <li>Texto sobre a padroeira e a relíquia</li>
+            <li>Imagem do ícone exposto na capela</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="descricao">
+        <strong>Foco editorial:</strong> as duas páginas evitam burocracia administrativa e
+        apresentam o espaço como parte do patrimônio cultural do Judiciário catarinense.
+      </div>
+    </section>
+
+    <section class="pagina">
+      <p class="eyebrow">Acervo digital, Arquivo e Pesquisa</p>
+      <h2>Os caminhos para quem quer pesquisar</h2>
+      <p class="lead">
+        Quem procura fontes documentais encontra três entradas: <strong>Acervo digital</strong>
+        com busca direta no AtoM, <strong>Arquivo</strong> com informações de guarda permanente e
+        <strong>Pesquisa</strong> com orientação para uso acadêmico.
+      </p>
+
+      <div class="wireframe">
+        <div class="nav"><strong>Acervo digital</strong></div>
+        <div class="duas-colunas">
+          <div>
+            <ul class="lista">
+              <li>Núcleos do acervo (manuscritos, fotografias, etc.)</li>
+              <li>Categorias com texto explicativo</li>
+              <li>Imagem ampliável da exposição "Do Arquivo ao AtoM"</li>
+            </ul>
+          </div>
+          <div class="sidebar">
+            <p class="eyebrow">Buscar no AtoM</p>
+            <p style="margin-top:8px;">[ campo de busca ]   Buscar →</p>
+            <ul class="lista" style="margin-top:12px;">
+              <li>Descrições arquivísticas</li>
+              <li>Pessoas e instituições</li>
+              <li>Documentos digitais</li>
+              <li>Assuntos, locais, funções</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="descricao">
+        <strong>AtoM permanece externo:</strong> o site Memória TJSC abre o caminho, mas a
+        pesquisa avançada acontece na plataforma própria do TJSC.
+      </div>
+    </section>
+
+    <section class="pagina">
+      <p class="eyebrow">Biblioteca e Vídeos</p>
+      <h2>Atalhos para conteúdos institucionais</h2>
+      <p class="lead">
+        A Biblioteca Desembargador Marcílio Medeiros tem página própria com horários, serviços e
+        bases jurídicas digitais. A área de Vídeos reúne registros institucionais e eventos.
+      </p>
+
+      <div class="grid-2">
+        <div class="wireframe">
+          <div class="nav"><strong>Biblioteca</strong></div>
+          <ul class="lista">
+            <li>Apresentação do acervo (40 mil exemplares)</li>
+            <li>Horários de atendimento</li>
+            <li>Atalhos: Renovação, Catálogo, DeLivros, Contatos</li>
+            <li>Bases digitais: Minha Biblioteca, Revista dos Tribunais, HeinOnline, Fórum</li>
+          </ul>
+        </div>
+
+        <div class="wireframe">
+          <div class="nav"><strong>Vídeos / Eventos</strong></div>
+          <ul class="lista">
+            <li>Vídeos principais sobre a história institucional</li>
+            <li>Vídeos de eventos comemorativos</li>
+            <li>Cada item abre no YouTube oficial</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="descricao">
+        <strong>Sem duplicar o portal:</strong> o site não substitui as páginas oficiais da
+        Biblioteca ou do YouTube; ele organiza um caminho fácil para chegar a elas.
+      </div>
+    </section>
+
+    <section class="pagina">
+      <p class="eyebrow">Janela de imagem ampliada</p>
+      <h2>O detalhe que aproxima o visitante das obras</h2>
+      <p class="lead">
+        Sempre que houver uma imagem importante, o visitante pode clicar para abrir uma
+        visualização em tela cheia, com legenda e botão de fechar.
+      </p>
+
+      <div class="wireframe" style="background:#111;color:white;">
+        <div class="hero" style="background:#222;border:none;color:#ddd;height:340px;">Imagem ampliada — ocupa quase a tela inteira</div>
+        <p style="text-align:center;font-size:13px;color:#bbb;">Legenda discreta abaixo da imagem</p>
+      </div>
+
+      <div class="descricao">
+        <strong>Foco e teclado:</strong> a janela pode ser fechada com a tecla Esc ou clicando
+        fora da imagem. Quem usa leitor de tela recebe o título e a legenda automaticamente.
+      </div>
+    </section>
+
+    <section class="pagina">
+      <p class="eyebrow">Como o site é navegado</p>
+      <h2>Estrutura geral em uma página</h2>
+      <p class="lead">
+        Toda página tem o mesmo cabeçalho, sem rodapé próprio. Assim o site convive com o portal
+        oficial sem competir com cabeçalho e rodapé do TJSC.
+      </p>
+
+      <div class="wireframe">
+        <div class="nav">
+          <strong>Memória TJSC</strong>
+          <span>Visitar</span><span>Exposições</span><span>Acervo</span><span>Pesquisa acadêmica</span><span>AtoM</span>
+        </div>
+        <div class="row three">
+          <div class="card"><strong>História e memória</strong>Museu, História do Tribunal, História escrita, História oral</div>
+          <div class="card"><strong>Acervos e registros</strong>Arquivo, Biblioteca, Vídeos, Eventos</div>
+          <div class="card"><strong>Institucional</strong>Capela, Composição, Atribuições</div>
+        </div>
+        <div class="hero">Conteúdo da página atual</div>
+      </div>
+
+      <div class="descricao">
+        <strong>Skip link e acessibilidade:</strong> quem usa apenas o teclado encontra
+        imediatamente um atalho para ir direto ao conteúdo principal. A navegação é compacta e
+        consistente em todas as 17 páginas.
+      </div>
+    </section>
+
+    <section class="pagina">
+      <p class="eyebrow">Resumo final</p>
+      <h2>O projeto em uma página</h2>
+      <div class="grid-2">
+        <div class="quadro">
+          <p class="eyebrow">Páginas públicas</p>
+          <h3 style="margin-top:8px;">17</h3>
+          <p style="margin-top:8px;color:var(--muted);">Home, Museu, Exposições, História, História escrita, História oral, Composição, Acervo, Arquivo, Biblioteca, Capela, Vídeos, Eventos, Visitações, Pesquisa, Atribuições e a página de erro.</p>
+        </div>
+        <div class="quadro">
+          <p class="eyebrow">Conteúdo</p>
+          <h3 style="margin-top:8px;">32 + 9 + 16 + 57</h3>
+          <p style="margin-top:8px;color:var(--muted);">32 exposições, 9 volumes oficiais, 16 vídeos de história oral e 57 gestões com composição integral.</p>
+        </div>
+        <div class="quadro">
+          <p class="eyebrow">Identidade visual</p>
+          <h3 style="margin-top:8px;">Open Sans + bordô</h3>
+          <p style="margin-top:8px;color:var(--muted);">Fundo claro de papel, texto grafite e bordô institucional como acento. Cards homogêneos com imagens centralizadas.</p>
+        </div>
+        <div class="quadro">
+          <p class="eyebrow">Acessibilidade</p>
+          <h3 style="margin-top:8px;">Teclado + leitor de tela</h3>
+          <p style="margin-top:8px;color:var(--muted);">Skip link funcional, foco visível, navegação por setas em grade de gestões, alts descritivos, modal acessível.</p>
+        </div>
+        <div class="quadro">
+          <p class="eyebrow">Publicação</p>
+          <h3 style="margin-top:8px;">Compatível com Liferay</h3>
+          <p style="margin-top:8px;color:var(--muted);">Pronto para ser incorporado como fragmento, sem disputar rotas do portal nem alterar cabeçalho/rodapé institucionais.</p>
+        </div>
+        <div class="quadro">
+          <p class="eyebrow">Onde está o código</p>
+          <h3 style="margin-top:8px;">GitHub público</h3>
+          <p style="margin-top:8px;color:var(--muted);">github.com/guilhermespamplona-prog/museu-tjsc — qualquer pessoa pode visualizar, clonar e propor melhorias.</p>
+        </div>
+      </div>
+
+      <footer class="rodape">
+        Documento para apresentação a clientes e equipes não técnicas. Para detalhes técnicos,
+        consultar README.md e docs/arquitetura-uml.md no repositório.
+      </footer>
+    </section>
+  </body>
+</html>

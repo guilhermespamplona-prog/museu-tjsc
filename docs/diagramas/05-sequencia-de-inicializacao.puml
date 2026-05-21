@@ -1,0 +1,24 @@
+@startuml
+actor Usuario
+participant "Portal/Liferay ou Vite" as Host
+participant "index.html" as Html
+participant "main.tsx" as Main
+participant ".museu-tjsc-app" as Scope
+participant "ErrorBoundary" as Boundary
+participant "App.tsx" as App
+participant "Wouter" as Router
+participant "Página React" as Page
+participant "Dados" as Data
+
+Usuario -> Host : acessa URL
+Host -> Html : entrega HTML
+Html -> Main : carrega ./assets/index.js
+Main -> Scope : monta wrapper escopado
+Scope -> Boundary : renderiza
+Boundary -> App : renderiza
+App -> Router : inicializa useHashLocation
+App -> Router : registra ScrollToTop
+Router -> Page : seleciona rota
+Page -> Data : lê dados estruturados
+Page --> Usuario : renderiza conteúdo
+@enduml

@@ -1,0 +1,41 @@
+@startuml
+left to right direction
+
+actor "Visitante Público" as Visitante
+actor "Pesquisador(a)" as Pesquisador
+actor "Equipe Museu/Memória" as Museu
+actor "Equipe Portal/Liferay" as Portal
+actor "Mantenedor(a)" as Dev
+
+rectangle "Museu TJSC" {
+  usecase "Navegar pela home" as UC_Home
+  usecase "Consultar exposições" as UC_Exposicoes
+  usecase "Ampliar imagem" as UC_Imagem
+  usecase "Consultar história" as UC_Historia
+  usecase "Consultar história escrita" as UC_Escrita
+  usecase "Consultar história oral" as UC_Oral
+  usecase "Navegar composição por gestão" as UC_Composicao
+  usecase "Acessar pesquisa no AtoM" as UC_Atom
+  usecase "Ver dados de visitação" as UC_Visita
+  usecase "Atualizar dados estruturados" as UC_Dados
+  usecase "Publicar pacote estático" as UC_Publicar
+}
+
+Visitante --> UC_Home
+Visitante --> UC_Exposicoes
+Visitante --> UC_Imagem
+Visitante --> UC_Historia
+Visitante --> UC_Composicao
+Visitante --> UC_Visita
+Pesquisador --> UC_Escrita
+Pesquisador --> UC_Oral
+Pesquisador --> UC_Atom
+Museu --> UC_Dados
+Dev --> UC_Dados
+Dev --> UC_Publicar
+Portal --> UC_Publicar
+
+UC_Exposicoes ..> UC_Imagem : <<include>>
+UC_Atom ..> "AtoM externo" : redireciona
+
+@enduml

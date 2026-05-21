@@ -1,0 +1,18 @@
+@startuml
+actor Usuario
+participant "ZoomableImageDialog Trigger" as Trigger
+participant "Dialog.Portal" as Portal
+participant "Wrapper .museu-tjsc-app" as Scope
+participant "Dialog.Overlay" as Overlay
+participant "Dialog.Content" as Content
+
+Usuario -> Trigger : ativa trigger (lazy/async img)
+Trigger -> Portal : abre portal
+Portal -> Scope : envolve overlay/content em .museu-tjsc-app
+Scope -> Overlay : renderiza overlay fixed
+Scope -> Content : renderiza modal fixed
+Content --> Usuario : foco preso, imagem object-contain
+Usuario -> Content : Escape ou clique no botão
+Content -> Portal : fecha modal
+Portal --> Trigger : restaura foco no trigger
+@enduml

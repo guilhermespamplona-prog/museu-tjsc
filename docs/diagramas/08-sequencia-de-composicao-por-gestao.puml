@@ -1,0 +1,16 @@
+@startuml
+actor Usuario
+participant "Composicao.tsx" as Page
+participant "compositionTerms" as Data
+participant "Card (role=radio)" as Card
+participant "Painel (role=region)" as Panel
+
+Page -> Data : compositionTerms
+Page --> Usuario : renderiza grade radiogroup
+Usuario -> Card : foca card
+Usuario -> Card : ArrowDown
+Card -> Page : selectTerm(nextIndex)
+Page -> Card : aplica aria-checked e foco
+Page -> Panel : atualiza presidência e membros
+Panel --> Usuario : aria-live anuncia mudança
+@enduml

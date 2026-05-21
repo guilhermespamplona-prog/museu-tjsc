@@ -66,9 +66,45 @@ O repositório é **público**, então qualquer pessoa com o link consegue ver. 
 
 > Diagramas PlantUML não são renderizados pelo GitHub. Para mostrá-los como imagens, use uma das opções da próxima seção.
 
-## Renderizar Diagramas UML
+## Apresentação Visual Para Leigos (PDF Pronto)
 
-Os diagramas PlantUML estão em `docs/arquitetura-uml.md`, dentro de blocos:
+Já existe um pacote pronto para clientes que não querem ver código:
+
+- `docs/apresentacao-leigos.html` — wireframes simples explicando cada tela.
+- `docs/apresentacao-leigos.pdf` — versão pronta para imprimir/anexar.
+
+Para regenerar o PDF a partir do HTML:
+
+```bash
+npx pnpm@10.4.1 run docs:pdf
+```
+
+Esse comando usa o Chromium headless (do Playwright) ou qualquer Chromium/Chrome instalado. Se nada estiver disponível, abra o HTML no navegador (`Ctrl + P` → Salvar como PDF).
+
+## Diagramas UML Renderizados
+
+Os diagramas PlantUML estão em `docs/arquitetura-uml.md`, mas também ficam prontos como arquivos individuais e imagens:
+
+- Fontes: `docs/diagramas/*.puml` (13 diagramas).
+- Imagens: `docs/diagramas/svg/*.svg` (geradas pelo PlantUML).
+- Pacote visual: `docs/diagramas/index.html` (todos os diagramas comentados em uma página).
+- PDF consolidado: `docs/diagramas/diagramas-uml.pdf`.
+
+Para regenerar tudo (extrair fontes, renderizar SVGs e gerar PDFs):
+
+```bash
+npx pnpm@10.4.1 run docs:all
+```
+
+O `docs:diagramas` usa o servidor público `plantuml.com` por padrão. Se preferir gerar offline, baixe `plantuml.jar` (https://github.com/plantuml/plantuml/releases) e exporte:
+
+```bash
+PLANTUML_JAR=/caminho/para/plantuml.jar npx pnpm@10.4.1 run docs:diagramas
+```
+
+### Renderizar Diagramas Manualmente
+
+Os blocos PlantUML em `docs/arquitetura-uml.md` têm o formato:
 
 ```plantuml
 @startuml

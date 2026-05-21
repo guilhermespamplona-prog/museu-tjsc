@@ -1,0 +1,9 @@
+@startuml
+[*] --> Fechado
+Fechado --> Aberto : ativação do trigger (clique/Enter/Espaço)
+Aberto --> Fechado : Escape
+Aberto --> Fechado : clique no botão fechar
+Aberto --> Fechado : clique no overlay
+Aberto --> Aberto : clique na imagem ampliada
+Fechado --> [*]
+@enduml

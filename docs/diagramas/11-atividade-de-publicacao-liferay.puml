@@ -1,0 +1,28 @@
+@startuml
+start
+:Rodar npx pnpm@10.4.1 check;
+if (TypeScript passou?) then (sim)
+  :Definir estratégia Liferay;
+else (não)
+  :Corrigir erros;
+  stop
+endif
+
+if (images/ ficará junto do index.html?) then (sim)
+  :Build sem VITE_PUBLIC_ASSET_BASE;
+else (não)
+  :Definir VITE_PUBLIC_ASSET_BASE para base real de images/;
+  :Executar build com a variável;
+endif
+
+:Vite gera dist/public;
+:Pós-processar CSS com scope-liferay-css.mjs;
+:esbuild empacota server/index.ts;
+:Publicar index/assets/images conforme estratégia;
+:Abrir URL da página Liferay;
+:Validar #/ e rotas internas;
+:Validar imagens locais e remotas;
+:Validar modal portaled com escopo .museu-tjsc-app;
+:Validar que tema do portal não foi alterado;
+stop
+@enduml

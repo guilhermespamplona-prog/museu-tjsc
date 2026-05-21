@@ -10,7 +10,10 @@
     "start": "NODE_ENV=production node dist/index.js",
     "preview": "NODE_OPTIONS=--disable-warning=DEP0205 vite preview",
     "check": "tsc --noEmit --incremental false",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "docs:diagramas": "node scripts/extract-diagramas.mjs && node scripts/render-diagramas.mjs",
+    "docs:pdf": "bash scripts/gerar-pdf-apresentacao.sh docs/apresentacao-leigos.html && bash scripts/gerar-pdf-apresentacao.sh docs/diagramas/index.html docs/diagramas/diagramas-uml.pdf",
+    "docs:all": "npm run docs:diagramas && npm run docs:pdf"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.15",

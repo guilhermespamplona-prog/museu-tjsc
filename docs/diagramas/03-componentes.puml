@@ -1,0 +1,47 @@
+@startuml
+skinparam componentStyle rectangle
+
+package "Navegador" {
+  component "index.html" as Html
+  component "main.tsx" as Main
+  component ".museu-tjsc-app wrapper" as Scope
+  component "ErrorBoundary" as Boundary
+  component "App.tsx" as App
+  component "Wouter useHashLocation" as Router
+  component "ScrollToTop" as Scroll
+  component "Layout" as Layout
+  component "PageIntro" as PageIntro
+  component "ExhibitionCard" as ExhibitionCard
+  component "ZoomableImageDialog" as Dialog
+  component "Páginas (17)" as Pages
+  component "Dados Estruturados" as Data
+  component "publicAssetUrl" as AssetUrl
+  component "index.css escopado" as Css
+}
+
+cloud "Portal Liferay" as Liferay
+cloud "AtoM" as Atom
+cloud "Documentos/Imagens TJSC" as Docs
+cloud "YouTube" as YT
+
+Liferay --> Html : incorpora ou serve
+Html --> Main : carrega JS
+Html --> Css : carrega CSS relativo
+Main --> Scope : monta em museu-tjsc-root
+Scope --> Boundary
+Boundary --> App
+App --> Router
+App --> Scroll
+App --> Pages
+Pages --> Layout
+Pages --> PageIntro
+Pages --> ExhibitionCard
+Pages --> Dialog
+Pages --> Data
+ExhibitionCard --> Dialog
+Data --> AssetUrl
+AssetUrl --> Docs : base externa opcional
+ExhibitionCard --> Docs : imagens remotas
+Pages --> Atom : links externos
+Pages --> YT : vídeos
+@enduml

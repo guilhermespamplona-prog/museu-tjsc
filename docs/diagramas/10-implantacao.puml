@@ -1,0 +1,31 @@
+@startuml
+node "Estação Do Desenvolvedor" as DevMachine {
+  artifact "Código-fonte"
+  artifact "npx pnpm@10.4.1 build"
+}
+
+node "Artefato Estático" as Dist {
+  artifact "dist/public/index.html"
+  artifact "dist/public/assets/*.js"
+  artifact "dist/public/assets/*.css"
+  artifact "dist/public/images/**"
+  artifact "dist/index.js (Express opcional)"
+}
+
+node "Portal TJSC / Liferay" as Liferay {
+  artifact "Página institucional"
+  artifact "Fragmento ou Client Extension"
+}
+
+cloud "Documentos e Mídia / CDN Interno" as Media
+cloud "AtoM" as Atom
+cloud "Serviços TJSC" as TjscDocs
+cloud "YouTube" as YT
+
+DevMachine --> Dist : pipeline de build
+Dist --> Liferay : index/assets em fragmento ou página
+Dist --> Media : images/** quando publicado fora do HTML
+Liferay --> Atom : links externos da aplicação
+Liferay --> TjscDocs : PDFs/imagens remotas
+Liferay --> YT : vídeos referenciados
+@enduml

@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>Diagramas UML — Memória TJSC</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+      :root {
+        --bg: #fbfaf7;
+        --ink: #1f1e1c;
+        --muted: #635b52;
+        --accent: #8b1d2c;
+        --line: #ddd6cc;
+        --card: #f2efe8;
+      }
+      * { box-sizing: border-box; }
+      html, body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        font-size: 16px;
+        line-height: 1.55;
+      }
+      header {
+        padding: 48px 56px 24px;
+        border-bottom: 1px solid var(--line);
+      }
+      header p.eyebrow {
+        font-size: 11px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin: 0 0 8px;
+      }
+      header h1 { margin: 0; font-size: 36px; letter-spacing: -0.02em; }
+      header p.lead {
+        margin: 16px 0 0;
+        max-width: 64ch;
+        color: var(--muted);
+        font-size: 17px;
+      }
+      main {
+        padding: 32px 56px 64px;
+        display: grid;
+        gap: 48px;
+      }
+      section.diagrama {
+        page-break-inside: avoid;
+        border-top: 2px solid var(--accent);
+        padding-top: 20px;
+      }
+      section.diagrama h2 {
+        margin: 0 0 6px;
+        font-size: 22px;
+      }
+      section.diagrama p.descricao {
+        margin: 0 0 16px;
+        color: var(--muted);
+        font-size: 14px;
+        max-width: 70ch;
+      }
+      section.diagrama .moldura {
+        background: white;
+        border: 1px solid var(--line);
+        padding: 16px;
+        text-align: center;
+      }
+      section.diagrama img,
+      section.diagrama object {
+        max-width: 100%;
+        height: auto;
+      }
+      footer {
+        padding: 24px 56px;
+        font-size: 13px;
+        color: var(--muted);
+        border-top: 1px solid var(--line);
+      }
+      @media print {
+        @page { size: A4; margin: 12mm; }
+        header, main, footer { padding-left: 0; padding-right: 0; }
+        section.diagrama { page-break-inside: avoid; page-break-after: always; }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <p class="eyebrow">Documentação técnica</p>
+      <h1>Diagramas UML — Memória TJSC</h1>
+      <p class="lead">
+        Os diagramas abaixo foram gerados a partir dos blocos PlantUML em
+        <code>docs/arquitetura-uml.md</code>. Cada seção tem uma descrição curta para apoiar a
+        leitura por públicos não técnicos.
+      </p>
+    </header>
+
+    <main>
+      <section class="diagrama">
+        <h2>1. Pacotes</h2>
+        <p class="descricao">Mostra como o repositório está organizado em módulos: cliente React, scripts auxiliares, servidor Express opcional e documentação.</p>
+        <div class="moldura"><img src="svg/01-diagrama-de-pacotes.svg" alt="Diagrama de pacotes do projeto Memória TJSC" /></div>
+      </section>
+
+      <section class="diagrama">
+        <h2>2. Casos de uso</h2>
+        <p class="descricao">Quem usa o sistema e o que cada perfil consegue fazer: visitante, pesquisador(a), equipe do museu, equipe do portal/Liferay e mantenedor(a) do código.</p>
+        <div class="moldura"><img src="svg/02-casos-de-uso.svg" alt="Diagrama de casos de uso" /></div>
+      </section>
+
+      <section class="diagrama">
+        <h2>3. Componentes</h2>
+        <p class="descricao">Os blocos de software que sustentam a aplicação: HTML base, montagem React, roteador por hash, layout, páginas, dados e integrações externas (Liferay, AtoM, YouTube, TJSC).</p>
+        <div class="moldura"><img src="svg/03-componentes.svg" alt="Diagrama de componentes da aplicação" /></div>
+      </section>
+
+      <section class="diagrama">
+        <h2>4. Classes de dados</h2>
+        <p class="descricao">A estrutura dos dados estruturados (exposições, publicações, gestões, entrevistas, fontes, etc.) que alimentam as páginas.</p>
+        <div class="moldura"><img src="svg/04-classes-de-dados.svg" alt="Diagrama de classes de dados" /></div>
+      </section>
+
+      <section class="diagrama">
+        <h2>5. Sequência — Inicialização</h2>
+        <p class="descricao">O que acontece quando o navegador abre o site, desde o HTML inicial até a renderização da rota atual.</p>
+        <div class="moldura"><img src="svg/05-sequencia-de-inicializacao.svg" alt="Sequência de inicialização" /></div>
+      </section>
+
+      <section class="diagrama">
+        <h2>6. Sequência — Navegação por hash</h2>
+        <p class="descricao">Como funciona o clique em links internos sem disputar URLs com o Liferay: tudo acontece via fragmentos #/rota.</p>
+        <div class="moldura"><img src="svg/06-sequencia-de-navegacao-hash.svg" alt="Sequência de navegação por hash" /></div>
+      </section>
+
+      <section class="diagrama">
+        <h2>7. Sequência — Skip link</h2>
+        <p class="descricao">Como o atalho de acessibilidade move o foco direto para o conteúdo principal sem alterar a rota atual.</p>
+        <div class="moldura"><img src="svg/07-sequencia-de-skip-link.svg" alt="Sequência do skip link" /></div>
+      </section>
+
+      <section class="diagrama">
+        <h2>8. Sequência — Composição por gestão</h2>
+        <p class="descricao">Como funciona a navegação por teclado entre as 57 gestões e a atualização do painel lateral.</p>
+        <div class="moldura"><img src="svg/08-sequencia-de-composicao-por-gestao.svg" alt="Sequência da grade de composição" /></div>
+      </section>
+
+      <section class="diagrama">
+        <h2>9. Sequência — Imagem ampliável</h2>
+        <p class="descricao">Como o modal de imagem é aberto, portaled, focado e fechado, preservando o tema escopado para o Liferay.</p>
+        <div class="moldura"><img src="svg/09-sequencia-de-imagem-ampliavel.svg" alt="Sequência da imagem ampliável" /></div>
+      </section>
+
+      <section class="diagrama">
+        <h2>10. Implantação</h2>
+        <p class="descricao">Da máquina do desenvolvedor até o portal Liferay: como os arquivos saem do build e são publicados, com AtoM, YouTube e Documentos/Imagens TJSC como serviços externos.</p>
+        <div class="moldura"><img src="svg/10-implantacao.svg" alt="Diagrama de implantação" /></div>
+      </section>
+
+      <section class="diagrama">
+        <h2>11. Atividade — Publicação Liferay</h2>
+        <p class="descricao">Passo a passo operacional para publicar a aplicação no portal, incluindo o caso em que as imagens ficam em base externa.</p>
+        <div class="moldura"><img src="svg/11-atividade-de-publicacao-liferay.svg" alt="Atividade de publicação Liferay" /></div>
+      </section>
+
+      <section class="diagrama">
+        <h2>12. Estados — Diálogo de imagem</h2>
+        <p class="descricao">Os estados possíveis da janela de imagem ampliada (fechada, aberta) e as transições entre eles.</p>
+        <div class="moldura"><img src="svg/12-estados-do-dialogo-de-imagem.svg" alt="Estados do diálogo de imagem" /></div>
+      </section>
+
+      <section class="diagrama">
+        <h2>13. Estados — Grade de composição</h2>
+        <p class="descricao">Os estados de seleção na grade de gestões e como o teclado movimenta o foco.</p>
+        <div class="moldura"><img src="svg/13-estados-da-grade-de-composicao.svg" alt="Estados da grade de composição" /></div>
+      </section>
+    </main>
+
+    <footer>
+      Diagramas gerados a partir de <code>docs/arquitetura-uml.md</code>. Para regenerar, rode
+      <code>node scripts/extract-diagramas.mjs</code> seguido de
+      <code>node scripts/render-diagramas.mjs</code>.
+    </footer>
+  </body>
+</html>

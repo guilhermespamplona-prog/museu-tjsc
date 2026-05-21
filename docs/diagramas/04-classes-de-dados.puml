@@ -1,0 +1,81 @@
+@startuml
+class Source {
+  +label: string
+  +url: string
+  +verifiedAt: string
+}
+
+class Exhibition {
+  +year: string
+  +title: string
+  +url: string
+  +imageUrl: string
+  +imageAlt: string
+  +sourceUrl: string
+}
+
+class Publication {
+  +title: string
+  +subtitle: string
+  +year: string
+  +description: string
+  +url: string
+  +imageUrl?: string
+  +imageAlt?: string
+  +sourceUrl: string
+}
+
+class TimelineEvent {
+  +year: string
+  +title: string
+  +description: string
+}
+
+class OralHistoryInterview {
+  +name: string
+  +url: string
+  +imageUrl: string
+  +imageAlt: string
+}
+
+class CompositionTerm {
+  +period: string
+  +presidentTitle?: string
+  +president: string
+  +dateRange: string
+  +imageUrl: string
+  +imageAlt: string
+  +sourceUrl: string
+  +members: string[]
+}
+
+class MemoriaData <<module>> {
+  +VERIFIED_AT: string
+  +sources: Record<string, Source>
+  +museumFacts: string[]
+  +visitInfo: VisitInfo
+  +acervoCategories: string[]
+  +publications: Publication[]
+  +writtenHistoryVolumes: Publication[]
+  +exhibitions: Exhibition[]
+  +timeline: TimelineEvent[]
+  +videos: VideoLink[]
+  +eventVideos: VideoLink[]
+  +oralHistoryInterviews: OralHistoryInterview[]
+  +atribuicoes: string[]
+  +curatedPaths: CuratedPath[]
+  +findExhibitionByTitle(title): Exhibition
+}
+
+class ComposicaoData <<module>> {
+  +compositionTerms: CompositionTerm[]
+}
+
+MemoriaData "1" o-- "0..*" Source
+MemoriaData "1" o-- "0..*" Publication
+MemoriaData "1" o-- "0..*" Exhibition
+MemoriaData "1" o-- "0..*" TimelineEvent
+MemoriaData "1" o-- "0..*" OralHistoryInterview
+ComposicaoData "1" o-- "57" CompositionTerm
+
+@enduml

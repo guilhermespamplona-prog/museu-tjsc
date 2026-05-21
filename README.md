@@ -243,7 +243,15 @@ A direção de design vigente está em [`ideas.md`](ideas.md). Resumo:
 - Mapa do site: [`docs/mapa-do-site.md`](docs/mapa-do-site.md).
 - Guia de execução local (Windows/macOS/Linux): [`docs/guia-execucao-local.md`](docs/guia-execucao-local.md).
 - Guia de apresentação e geração de documentação para clientes: [`docs/guia-apresentacao.md`](docs/guia-apresentacao.md).
+- Apresentação visual para leigos (HTML + PDF): [`docs/apresentacao-leigos.html`](docs/apresentacao-leigos.html) · [`docs/apresentacao-leigos.pdf`](docs/apresentacao-leigos.pdf).
+- Diagramas UML prontos (fontes `.puml`, imagens `.svg`, HTML e PDF consolidados): [`docs/diagramas/`](docs/diagramas/).
 - Direção de design: [`ideas.md`](ideas.md).
+
+Para regenerar diagramas e PDFs em qualquer momento:
+
+```bash
+npx pnpm@10.4.1 run docs:all
+```
 
 ## Próximos Pontos Naturais
 
