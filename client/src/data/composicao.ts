@@ -499,6 +499,7 @@ Túlio José Moura Pinheiro
 Ricardo José Roesler
 Robson Luz Varella
 Ronaldo Moritz Martins da Silva
+Rodrigo Tolentino de Carvalho Collaço
 Sérgio Antônio Rizelo
 Denise Volpato
 Getúlio Corrêa

@@ -1,11 +1,11 @@
 import Layout from "@/components/Layout";
 import ZoomableImageDialog from "@/components/ZoomableImageDialog";
-import { curatedPaths, exhibitions } from "@/data/memoria";
+import { curatedPaths, findExhibitionByTitle } from "@/data/memoria";
 import { ArrowRight } from "lucide-react";
 import { Link } from "wouter";
 
-const heroExhibition = exhibitions.find((item) => item.title.startsWith("Nas ruínas de Curitibanos")) ?? exhibitions[16];
-const featuredExhibition = exhibitions.find((item) => item.title.startsWith("Nova exposição permanente")) ?? exhibitions[12];
+const heroExhibition = findExhibitionByTitle("Nas ruínas de Curitibanos");
+const featuredExhibition = findExhibitionByTitle("Nova exposição permanente");
 
 export default function Home() {
   return (

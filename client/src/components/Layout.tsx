@@ -1,4 +1,5 @@
 import { Link, useLocation } from "wouter";
+import type { MouseEvent } from "react";
 
 const primaryNav = [
   { label: "Visitar", href: "/visitacoes" },
@@ -51,10 +52,18 @@ function NavLink({ label, href }: { label: string; href: string }) {
   );
 }
 
+function focusMainContent(event: MouseEvent<HTMLAnchorElement>) {
+  event.preventDefault();
+
+  const main = document.getElementById("museu-tjsc-main");
+  main?.focus({ preventScroll: true });
+  main?.scrollIntoView({ block: "start" });
+}
+
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen bg-[#fbfaf7] text-[#23211f]">
-      <a href="#museu-tjsc-main" className="sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:not-sr-only focus:bg-[#8b1d2c] focus:px-4 focus:py-3 focus:font-ui focus:text-[11px] focus:uppercase focus:tracking-[0.14em] focus:text-white">
+      <a href="#museu-tjsc-main" onClick={focusMainContent} className="sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:not-sr-only focus:bg-[#8b1d2c] focus:px-4 focus:py-3 focus:font-ui focus:text-[11px] focus:uppercase focus:tracking-[0.14em] focus:text-white">
         Ir para o conteúdo principal
       </a>
       <header className="sticky top-0 z-50 border-b border-[#ddd6cc] bg-[#fbfaf7]/95 backdrop-blur">
@@ -92,7 +101,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </div>
       </header>
 
-      <main id="museu-tjsc-main">{children}</main>
+      <main id="museu-tjsc-main" tabIndex={-1}>{children}</main>
     </div>
   );
 }

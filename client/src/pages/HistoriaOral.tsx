@@ -26,7 +26,7 @@ export default function HistoriaOral() {
               </span>
               <span className="flex min-w-0 flex-col justify-center">
                 <span className="font-display text-2xl leading-tight text-[#1f1e1c] group-hover:text-[#8b1d2c]">{interview.name}</span>
-                <span className="mt-5 inline-flex items-center gap-2 font-ui text-[11px] uppercase tracking-[0.14em] text-[#635b52]"><Play size={13} /> Assistir <ArrowRight size={13} /></span>
+                <span className="mt-5 inline-flex items-center gap-2 font-ui text-[11px] uppercase tracking-[0.14em] text-[#635b52]"><Play size={13} /> Assistir <ArrowRight size={13} /><span className="sr-only"> em nova aba</span></span>
               </span>
             </a>
           ))}

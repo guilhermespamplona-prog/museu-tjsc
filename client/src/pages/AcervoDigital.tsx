@@ -1,9 +1,11 @@
 import Layout from "@/components/Layout";
 import PageIntro from "@/components/PageIntro";
 import ZoomableImageDialog from "@/components/ZoomableImageDialog";
-import { acervoCategories, exhibitions } from "@/data/memoria";
+import { acervoCategories, findExhibitionByTitle } from "@/data/memoria";
 import { ArrowRight, Database, ExternalLink, Search } from "lucide-react";
 import { useState } from "react";
+
+const acervoExhibition = findExhibitionByTitle("Do Arquivo ao AtoM");
 
 const atomLinks = [
   { label: "Descrições arquivísticas", url: "https://atom.tjsc.jus.br/index.php/informationobject/browse?topLod=0" },
@@ -50,8 +52,8 @@ export default function AcervoDigital() {
 
         <div>
           <ZoomableImageDialog
-            src={exhibitions[2].imageUrl}
-            alt={exhibitions[2].imageAlt}
+            src={acervoExhibition.imageUrl}
+            alt={acervoExhibition.imageAlt}
             caption="Do Arquivo ao AtoM - a história da Justiça para todos"
           />
         </div>

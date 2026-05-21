@@ -1,11 +1,8 @@
-import { Toaster } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
 import { useEffect, useLayoutEffect } from "react";
 import { Route, Router, Switch, useLocation } from "wouter";
 import { useHashLocation } from "wouter/use-hash-location";
 import ErrorBoundary from "./components/ErrorBoundary";
-import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import Museu from "./pages/Museu";
 import AcervoDigital from "./pages/AcervoDigital";
@@ -53,15 +50,18 @@ function ScrollToTop() {
 
   useEffect(() => {
     if ("scrollRestoration" in window.history) {
+      const previousScrollRestoration = window.history.scrollRestoration;
       window.history.scrollRestoration = "manual";
+
+      return () => {
+        window.history.scrollRestoration = previousScrollRestoration;
+      };
     }
+
+    return undefined;
   }, []);
 
   useLayoutEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-  }, [location]);
-
-  useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
   }, [location]);
 
@@ -70,19 +70,14 @@ function ScrollToTop() {
 
 function App() {
   return (
-    <ErrorBoundary>
-      <ThemeProvider defaultTheme="light">
-        <TooltipProvider>
-          <div className="museu-tjsc-app">
-            <Toaster />
-            <Router hook={useHashLocation}>
-              <ScrollToTop />
-              <AppRoutes />
-            </Router>
-          </div>
-        </TooltipProvider>
-      </ThemeProvider>
-    </ErrorBoundary>
+    <div className="museu-tjsc-app">
+      <ErrorBoundary>
+        <Router hook={useHashLocation}>
+          <ScrollToTop />
+          <AppRoutes />
+        </Router>
+      </ErrorBoundary>
+    </div>
   );
 }
 

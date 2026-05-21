@@ -4,18 +4,6 @@ export type Source = {
   verifiedAt: string;
 };
 
-export type ImageRef = {
-  src: string;
-  alt: string;
-  caption?: string;
-  sourceUrl: string;
-};
-
-export type LinkItem = {
-  label: string;
-  url: string;
-};
-
 export type Exhibition = {
   year: string;
   title: string;
@@ -47,12 +35,6 @@ export type OralHistoryInterview = {
   url: string;
   imageUrl: string;
   imageAlt: string;
-};
-
-export type ManagementTerm = {
-  period: string;
-  president: string;
-  url: string;
 };
 
 export type CompositionTerm = {

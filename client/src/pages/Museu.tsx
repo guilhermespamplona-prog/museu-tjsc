@@ -1,8 +1,10 @@
 import Layout from "@/components/Layout";
 import PageIntro from "@/components/PageIntro";
 import ZoomableImageDialog from "@/components/ZoomableImageDialog";
-import { exhibitions, museumFacts, visitInfo } from "@/data/memoria";
+import { findExhibitionByTitle, museumFacts, visitInfo } from "@/data/memoria";
 import { Clock, Mail, MapPin, Phone, Users } from "lucide-react";
+
+const permanentExhibition = findExhibitionByTitle("Nova exposição permanente");
 
 export default function Museu() {
   return (
@@ -16,8 +18,8 @@ export default function Museu() {
       <section className="grid gap-12 px-5 pb-16 md:px-8 lg:grid-cols-[1fr_420px] lg:px-12 lg:pb-24">
         <div>
           <ZoomableImageDialog
-            src={exhibitions[12].imageUrl}
-            alt={exhibitions[12].imageAlt}
+            src={permanentExhibition.imageUrl}
+            alt={permanentExhibition.imageAlt}
             caption="Exposição permanente - mobiliário, documentos e objetos de trabalho do Judiciário"
             className="mb-10"
           />

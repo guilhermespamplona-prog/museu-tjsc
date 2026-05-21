@@ -1,4 +1,4 @@
-import type { Exhibition, LinkItem, ManagementTerm, OralHistoryInterview, Publication, Source, TimelineEvent } from "./types";
+import type { Exhibition, OralHistoryInterview, Publication, Source, TimelineEvent } from "./types";
 import { publicAssetUrl } from "../lib/publicAssetUrl";
 
 export const VERIFIED_AT = "2026-05-19";
@@ -85,19 +85,6 @@ export const sources = {
     verifiedAt: VERIFIED_AT,
   },
 } satisfies Record<string, Source>;
-
-export const officialSections: LinkItem[] = [
-  { label: "Acervo digital de guarda permanente", url: "https://atom.tjsc.jus.br/" },
-  { label: "Arquivo", url: "/arquivo" },
-  { label: "Biblioteca", url: "/biblioteca" },
-  { label: "Capela", url: "/capela" },
-  { label: "Composição do Tribunal por Gestão", url: "/composicao" },
-  { label: "História do Tribunal", url: "/historia" },
-  { label: "História Escrita", url: "/historia-escrita" },
-  { label: "História Oral", url: "/historia-oral" },
-  { label: "Museu", url: "/museu" },
-  { label: "Vídeos", url: "/videos" },
-];
 
 export const museumFacts = [
   "Processos judiciais são fontes históricas primárias produzidas sob o calor dos acontecimentos e com a fidedignidade exigida pelo aparato da Justiça.",
@@ -227,48 +214,22 @@ export const eventVideos = [
 ];
 
 export const oralHistoryInterviews: OralHistoryInterview[] = [
-  { name: "Teaser do projeto", url: "https://youtu.be/0cX7Ey5_-20", imageUrl: "https://www.tjsc.jus.br/documents/7662376/0/banner_memorias_200x134.png/6afb5b94-2fbb-79c9-7b40-4ba3615c9821?t=1635518409787", imageAlt: "Miniatura oficial do projeto Memórias da Justiça" },
-  { name: "Tycho Brahe Fernandes Neto", url: "https://youtu.be/pwqC_J5dKXQ", imageUrl: "https://www.tjsc.jus.br/documents/7662376/11978712/banner_tycho_200x134.png/e8610756-d620-7911-3393-3e67c93bcd73?t=1635518845555", imageAlt: "Miniatura oficial da entrevista de Tycho Brahe Fernandes Neto" },
-  { name: "João Martins", url: "https://youtu.be/JLNUyPW7GgA", imageUrl: "https://www.tjsc.jus.br/documents/7662376/11978712/banner_martins_200x134.png/679814f1-f8f2-29b4-b30e-50b8b0671070?t=1635518846082", imageAlt: "Miniatura oficial da entrevista de João Martins" },
-  { name: "Francisco Xavier Medeiros Vieira", url: "https://youtu.be/YCmzF1JTguo", imageUrl: "https://www.tjsc.jus.br/documents/7662376/11978712/banner_xavier_200x134.png/c78dff8f-1937-50d7-3788-dfae7aea7dc4?t=1635518923215", imageAlt: "Miniatura oficial da entrevista de Francisco Xavier Medeiros Vieira" },
-  { name: "João Schaefer", url: "https://youtu.be/3w-TyO9s7Uc", imageUrl: "https://www.tjsc.jus.br/documents/7662376/11978712/banner_joaoschaefer_200x134.png/c6a0fc4c-e719-4810-3567-781b98a4e229?t=1635518846157", imageAlt: "Miniatura oficial da entrevista de João Schaefer" },
-  { name: "Antônio Fernando do Amaral e Silva", url: "https://youtu.be/pPBoZmbe3E4", imageUrl: "https://www.tjsc.jus.br/documents/7662376/11978712/banner_amaral_200x134+%281%29.png/157f539c-3f9c-8881-63e9-91477af0a978?t=1635518846538", imageAlt: "Miniatura oficial da entrevista de Antônio Fernando do Amaral e Silva" },
-  { name: "Jorge Mussi", url: "https://youtu.be/2QVx8g39sic", imageUrl: "https://www.tjsc.jus.br/documents/7662376/11978712/banner_mussi_200x134.png/5ca9231e-3abd-06f0-5823-0bd81c373016?t=1635518846001", imageAlt: "Miniatura oficial da entrevista de Jorge Mussi" },
-  { name: "Pedro Manoel Abreu", url: "https://youtu.be/CzKy1bK-vsg", imageUrl: "https://www.tjsc.jus.br/documents/7662376/11978712/banner_pedroabreu_200x134.png/370db892-6caf-5c64-73d0-ea7a33b9e505?t=1635518845836", imageAlt: "Miniatura oficial da entrevista de Pedro Manoel Abreu" },
-  { name: "Francisco José Rodrigues de Oliveira Filho", url: "https://youtu.be/XP7lM_FVVIs", imageUrl: "https://www.tjsc.jus.br/documents/7662376/11978712/banner_franciscooliveira_200x134.png/9b32f66c-0a47-5789-13f9-0884395c3d57?t=1635518846352", imageAlt: "Miniatura oficial da entrevista de Francisco José Rodrigues de Oliveira Filho" },
-  { name: "Nelson Schaefer Martins", url: "https://youtu.be/8ozeHx6OD2Q", imageUrl: "https://www.tjsc.jus.br/documents/7662376/11978712/banner_nelson_200x134.png/3e5c1a14-a386-096d-8cc1-e01277f68cee?t=1635518845914", imageAlt: "Miniatura oficial da entrevista de Nelson Schaefer Martins" },
-  { name: "José Antônio Torres Marques", url: "https://youtu.be/6a3b_3zjQTE", imageUrl: "https://www.tjsc.jus.br/documents/7662376/11978712/banner_torres_200x134.png/31166dd7-00cd-fb70-55f8-5bb7d26a14bb?t=1635518845755", imageAlt: "Miniatura oficial da entrevista de José Antônio Torres Marques" },
-  { name: "Rodrigo Tolentino de Carvalho Collaço", url: "https://youtu.be/7oaqYvb_WV4", imageUrl: "https://www.tjsc.jus.br/documents/7662376/11978712/banner_collaco_200x134.png/55fd496b-1a72-8c91-ef04-264126aac54e?t=1635518846412", imageAlt: "Miniatura oficial da entrevista de Rodrigo Tolentino de Carvalho Collaço" },
-  { name: "Jaime Sprícigo", url: "https://youtu.be/ARcd2GKiJBI", imageUrl: "https://www.tjsc.jus.br/documents/7662376/11978712/banner_jaime_200x134.png/951f40af-863b-6d9c-de1f-5e45b4750521?t=1635518846253", imageAlt: "Miniatura oficial da entrevista de Jaime Sprícigo" },
-  { name: "Célia Vieira Bucchi", url: "https://youtu.be/GPif1FlF5n8", imageUrl: "https://www.tjsc.jus.br/documents/7662376/11978712/banner_celia_200x134.png/b3533945-df87-a137-0c3a-b672c9169a6c?t=1635518846472", imageAlt: "Miniatura oficial da entrevista de Célia Vieira Bucchi" },
-  { name: "Ricardo Roesler", url: "https://youtu.be/nZFxQxX7K8c", imageUrl: "https://www.tjsc.jus.br/documents/7662376/11978712/WhatsApp+Image+2024-05-10+at+14.03.48.jpeg/ad95927a-9796-b1bf-1510-7abd65c188de?t=1715360703793", imageAlt: "Miniatura oficial da entrevista de Ricardo Roesler" },
-  { name: "João Henrique Blasi", url: "https://youtu.be/OGbm9sblmoo", imageUrl: "https://www.tjsc.jus.br/documents/7662376/11978712/banner-interno-memorias-Blasi.png/3e12846d-dc0f-0676-b0b3-954bd2525bcd?t=1742824143025", imageAlt: "Miniatura oficial da entrevista de João Henrique Blasi" },
-];
-
-export const managementTerms: ManagementTerm[] = [
-  { period: "2024-2026", president: "Des. Francisco José Rodrigues de Oliveira Neto", url: "https://www.tjsc.jus.br/web/memoria/gestao-2024-2026" },
-  { period: "2023-2024", president: "Des. Altamiro de Oliveira", url: "https://www.tjsc.jus.br/web/memoria/gestao-2023-2024" },
-  { period: "2022-2023", president: "Des. João Henrique Blasi", url: "https://www.tjsc.jus.br/web/memoria/gestao-2022-2023" },
-  { period: "2020-2022", president: "Des. Ricardo José Roesler", url: "https://www.tjsc.jus.br/web/memoria/gestao-2020-2022" },
-  { period: "2018-2020", president: "Des. Rodrigo Tolentino de Carvalho Collaço", url: "https://www.tjsc.jus.br/web/memoria/gestao-2018-2020" },
-  { period: "2016-2018", president: "Des. José Antônio Torres Marques", url: "https://www.tjsc.jus.br/web/memoria/gestao-2016-2018" },
-  { period: "2014-2016", president: "Des. Nelson Schaefer Martins", url: "https://www.tjsc.jus.br/web/memoria/gestao-2014-2016" },
-  { period: "2012-2014", president: "Des. Cláudio Barreto Dutra", url: "https://www.tjsc.jus.br/web/memoria/gestao-2012-2014" },
-  { period: "2010-2012", president: "Des. José Trindade dos Santos", url: "https://www.tjsc.jus.br/web/memoria/gestao-2010-2012" },
-  { period: "2009-2010", president: "Des. João Eduardo de Souza Varella", url: "https://www.tjsc.jus.br/web/memoria/gestao-2009-2010" },
-  { period: "2008-2009", president: "Des. Francisco José Rodrigues de Oliveira Filho", url: "https://www.tjsc.jus.br/web/memoria/gestao-2008-2009" },
-  { period: "2006-2008", president: "Des. Pedro Manoel Abreu", url: "https://www.tjsc.jus.br/web/memoria/gestao-2006-2008" },
-  { period: "2004-2006", president: "Des. Jorge Mussi", url: "https://www.tjsc.jus.br/web/memoria/gestao-2004-2006" },
-  { period: "2002-2004", president: "Des. Antônio Fernando do Amaral e Silva", url: "https://www.tjsc.jus.br/web/memoria/gestao-2002-2004" },
-  { period: "2001-2002", president: "Des. João José Ramos Schaefer", url: "https://www.tjsc.jus.br/web/memoria/gestao-2001-2002" },
-  { period: "2000-2001", president: "Des. Francisco Xavier Medeiros Vieira", url: "https://www.tjsc.jus.br/web/memoria/gestao-2000-2001" },
-  { period: "1998-2000", president: "Des. João Martins", url: "https://www.tjsc.jus.br/web/memoria/gestao-1998-2000" },
-  { period: "1996-1998", president: "Des. Napoleão Xavier do Amarante", url: "https://www.tjsc.jus.br/web/memoria/gestao-1996-1998" },
-  { period: "1994-1996", president: "Des. Tycho Brahe Fernandes Neto", url: "https://www.tjsc.jus.br/web/memoria/gestao-1994-1996" },
-  { period: "1992-1994", president: "Des. Aloysio de Almeida Gonçalves", url: "https://www.tjsc.jus.br/web/memoria/gestao-1992-1994" },
-  { period: "1990-1992", president: "Des. Ayres Gama Ferreira de Mello", url: "https://www.tjsc.jus.br/web/memoria/gestao-1990-1992" },
-  { period: "1989-1990", president: "Desa. Thereza Grisólia Tang", url: "https://www.tjsc.jus.br/web/memoria/gestao-1989-1990" },
-  { period: "1891-1893", president: "Des. José Roberto Vianna Guilhon", url: "https://www.tjsc.jus.br/web/memoria/gestao-1891-1893" },
+  { name: "Teaser do projeto", url: "https://youtu.be/0cX7Ey5_-20", imageUrl: "https://www.tjsc.jus.br/documents/7662376/0/banner_memorias_200x134.png/6afb5b94-2fbb-79c9-7b40-4ba3615c9821?t=1635518409787", imageAlt: "Imagem do projeto Memórias da Justiça" },
+  { name: "Tycho Brahe Fernandes Neto", url: "https://youtu.be/pwqC_J5dKXQ", imageUrl: "https://www.tjsc.jus.br/documents/7662376/11978712/banner_tycho_200x134.png/e8610756-d620-7911-3393-3e67c93bcd73?t=1635518845555", imageAlt: "Miniatura da entrevista de Tycho Brahe Fernandes Neto" },
+  { name: "João Martins", url: "https://youtu.be/JLNUyPW7GgA", imageUrl: "https://www.tjsc.jus.br/documents/7662376/11978712/banner_martins_200x134.png/679814f1-f8f2-29b4-b30e-50b8b0671070?t=1635518846082", imageAlt: "Miniatura da entrevista de João Martins" },
+  { name: "Francisco Xavier Medeiros Vieira", url: "https://youtu.be/YCmzF1JTguo", imageUrl: "https://www.tjsc.jus.br/documents/7662376/11978712/banner_xavier_200x134.png/c78dff8f-1937-50d7-3788-dfae7aea7dc4?t=1635518923215", imageAlt: "Miniatura da entrevista de Francisco Xavier Medeiros Vieira" },
+  { name: "João Schaefer", url: "https://youtu.be/3w-TyO9s7Uc", imageUrl: "https://www.tjsc.jus.br/documents/7662376/11978712/banner_joaoschaefer_200x134.png/c6a0fc4c-e719-4810-3567-781b98a4e229?t=1635518846157", imageAlt: "Miniatura da entrevista de João Schaefer" },
+  { name: "Antônio Fernando do Amaral e Silva", url: "https://youtu.be/pPBoZmbe3E4", imageUrl: "https://www.tjsc.jus.br/documents/7662376/11978712/banner_amaral_200x134+%281%29.png/157f539c-3f9c-8881-63e9-91477af0a978?t=1635518846538", imageAlt: "Miniatura da entrevista de Antônio Fernando do Amaral e Silva" },
+  { name: "Jorge Mussi", url: "https://youtu.be/2QVx8g39sic", imageUrl: "https://www.tjsc.jus.br/documents/7662376/11978712/banner_mussi_200x134.png/5ca9231e-3abd-06f0-5823-0bd81c373016?t=1635518846001", imageAlt: "Miniatura da entrevista de Jorge Mussi" },
+  { name: "Pedro Manoel Abreu", url: "https://youtu.be/CzKy1bK-vsg", imageUrl: "https://www.tjsc.jus.br/documents/7662376/11978712/banner_pedroabreu_200x134.png/370db892-6caf-5c64-73d0-ea7a33b9e505?t=1635518845836", imageAlt: "Miniatura da entrevista de Pedro Manoel Abreu" },
+  { name: "Francisco José Rodrigues de Oliveira Filho", url: "https://youtu.be/XP7lM_FVVIs", imageUrl: "https://www.tjsc.jus.br/documents/7662376/11978712/banner_franciscooliveira_200x134.png/9b32f66c-0a47-5789-13f9-0884395c3d57?t=1635518846352", imageAlt: "Miniatura da entrevista de Francisco José Rodrigues de Oliveira Filho" },
+  { name: "Nelson Schaefer Martins", url: "https://youtu.be/8ozeHx6OD2Q", imageUrl: "https://www.tjsc.jus.br/documents/7662376/11978712/banner_nelson_200x134.png/3e5c1a14-a386-096d-8cc1-e01277f68cee?t=1635518845914", imageAlt: "Miniatura da entrevista de Nelson Schaefer Martins" },
+  { name: "José Antônio Torres Marques", url: "https://youtu.be/6a3b_3zjQTE", imageUrl: "https://www.tjsc.jus.br/documents/7662376/11978712/banner_torres_200x134.png/31166dd7-00cd-fb70-55f8-5bb7d26a14bb?t=1635518845755", imageAlt: "Miniatura da entrevista de José Antônio Torres Marques" },
+  { name: "Rodrigo Tolentino de Carvalho Collaço", url: "https://youtu.be/7oaqYvb_WV4", imageUrl: "https://www.tjsc.jus.br/documents/7662376/11978712/banner_collaco_200x134.png/55fd496b-1a72-8c91-ef04-264126aac54e?t=1635518846412", imageAlt: "Miniatura da entrevista de Rodrigo Tolentino de Carvalho Collaço" },
+  { name: "Jaime Sprícigo", url: "https://youtu.be/ARcd2GKiJBI", imageUrl: "https://www.tjsc.jus.br/documents/7662376/11978712/banner_jaime_200x134.png/951f40af-863b-6d9c-de1f-5e45b4750521?t=1635518846253", imageAlt: "Miniatura da entrevista de Jaime Sprícigo" },
+  { name: "Célia Vieira Bucchi", url: "https://youtu.be/GPif1FlF5n8", imageUrl: "https://www.tjsc.jus.br/documents/7662376/11978712/banner_celia_200x134.png/b3533945-df87-a137-0c3a-b672c9169a6c?t=1635518846472", imageAlt: "Miniatura da entrevista de Célia Vieira Bucchi" },
+  { name: "Ricardo Roesler", url: "https://youtu.be/nZFxQxX7K8c", imageUrl: "https://www.tjsc.jus.br/documents/7662376/11978712/WhatsApp+Image+2024-05-10+at+14.03.48.jpeg/ad95927a-9796-b1bf-1510-7abd65c188de?t=1715360703793", imageAlt: "Miniatura da entrevista de Ricardo Roesler" },
+  { name: "João Henrique Blasi", url: "https://youtu.be/OGbm9sblmoo", imageUrl: "https://www.tjsc.jus.br/documents/7662376/11978712/banner-interno-memorias-Blasi.png/3e12846d-dc0f-0676-b0b3-954bd2525bcd?t=1742824143025", imageAlt: "Miniatura da entrevista de João Henrique Blasi" },
 ];
 
 export const atribuicoes = [
@@ -286,9 +247,17 @@ export const atribuicoes = [
   "Reproduzir documentos históricos por meio de equipamento eletrônico que não prejudique sua qualidade e conservação.",
 ];
 
+export const findExhibitionByTitle = (titleStart: string) =>
+  exhibitions.find((item) => item.title.startsWith(titleStart)) ?? exhibitions[0];
+
+const historyPathImage = findExhibitionByTitle("As oito sedes do Tribunal");
+const acervoPathImage = findExhibitionByTitle("Do Arquivo ao AtoM");
+const writtenHistoryPathImage = publications.find((item) => item.imageUrl) ?? publications[0];
+const oralHistoryPathImage = oralHistoryInterviews.find((item) => item.imageUrl) ?? oralHistoryInterviews[0];
+
 export const curatedPaths = [
-  { title: "História do Tribunal", eyebrow: "Percurso histórico", description: "Dos ouvidores coloniais à Justiça digital, acompanhe a criação do Tribunal, suas comarcas, sedes, turbulências políticas e modernização institucional.", href: "/historia", imageUrl: exhibitions[6].imageUrl, imageAlt: exhibitions[6].imageAlt, actionLabel: "Abrir percurso" },
-  { title: "História escrita", eyebrow: "Publicações", description: "Acesse livros, volumes oficiais e registros audiovisuais sobre comarcas, magistrados e personagens da Justiça catarinense.", href: "/historia-escrita", imageUrl: publications[0].imageUrl, imageAlt: publications[0].imageAlt, actionLabel: "Acessar materiais" },
-  { title: "Vozes da Justiça", eyebrow: "História oral", description: "Entrevistas em vídeo preservam experiências de magistrados e servidores que atravessaram a história institucional.", href: "/historia-oral", imageUrl: oralHistoryInterviews[0].imageUrl, imageAlt: oralHistoryInterviews[0].imageAlt, actionLabel: "Assistir entrevistas" },
-  { title: "Arquivo, AtoM e Pesquisa", eyebrow: "Acervo", description: "Entenda como documentos, descrições arquivísticas e pesquisa histórica se conectam no repositório digital.", href: "/acervo-digital", imageUrl: exhibitions[2].imageUrl, imageAlt: exhibitions[2].imageAlt, actionLabel: "Explorar acervo" },
+  { title: "História do Tribunal", eyebrow: "Percurso histórico", description: "Dos ouvidores coloniais à Justiça digital, acompanhe a criação do Tribunal, suas comarcas, sedes, turbulências políticas e modernização institucional.", href: "/historia", imageUrl: historyPathImage.imageUrl, imageAlt: historyPathImage.imageAlt, actionLabel: "Abrir percurso" },
+  { title: "História escrita", eyebrow: "Publicações", description: "Acesse livros, volumes oficiais e registros audiovisuais sobre comarcas, magistrados e personagens da Justiça catarinense.", href: "/historia-escrita", imageUrl: writtenHistoryPathImage.imageUrl, imageAlt: writtenHistoryPathImage.imageAlt, actionLabel: "Acessar materiais" },
+  { title: "Vozes da Justiça", eyebrow: "História oral", description: "Entrevistas em vídeo preservam experiências de magistrados e servidores que atravessaram a história institucional.", href: "/historia-oral", imageUrl: oralHistoryPathImage.imageUrl, imageAlt: oralHistoryPathImage.imageAlt, actionLabel: "Assistir entrevistas" },
+  { title: "Arquivo, AtoM e Pesquisa", eyebrow: "Acervo", description: "Entenda como documentos, descrições arquivísticas e pesquisa histórica se conectam no repositório digital.", href: "/acervo-digital", imageUrl: acervoPathImage.imageUrl, imageAlt: acervoPathImage.imageAlt, actionLabel: "Explorar acervo" },
 ];
